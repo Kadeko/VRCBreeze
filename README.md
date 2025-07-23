@@ -31,7 +31,7 @@ VRCBreeze allows you to create any bone move in the wind. Supports wind strength
 
 ### **Problems & Solutions:**
 
-**Problem 1:** The hair doesn't move, when strength is enabled (above 0).\
+**Problem 1:** The hair doesn't move, when strength is enabled (above 0).
 
 **Solution:** Make sure the Physbones have "IsAnimated" set to true.\
 Also check, if these bones still exist in the generated animations. If the objects are missing, you may have to rename Hierarchy manually, or create hair movement by yourself.
