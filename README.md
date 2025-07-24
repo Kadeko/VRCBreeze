@@ -2,21 +2,21 @@
 VRCBreeze allows you to create any bone move in the wind. Supports wind strength, direction and randomization!
 
 ## **Features:**
-1) Prefab uses 4 Contact Receivers, 1 Contact Sender, 2 Rotation Constraints, 3 Synced Parameters (2 float & 1 boolean) in total of 17 Synced Bits.
+- Prefab uses 4 Contact Receivers, 1 Contact Sender, 2 Rotation Constraints, 3 Synced Parameters (2 float & 1 boolean) in total of 17 Synced Bits.
 
-1) This prefab generates 4 animations for the wind direction:\
+- This prefab generates 4 animations for the wind direction:\
    Forward `(+Z)`, Backward `(-Z)`, Left `(+X)` & Right `(-X)`
    - Directions can be inverted on individual bones.
    - Animations are bending the root bones (with the help of Physbones) to create wind effect.
 
-3) These 4 generated animations are automatically assigned into a blend tree in `FX_Breeze.controller`.
+- These 4 generated animations are automatically assigned into a blend tree in `FX_Breeze.controller`.
 
-4) Assigned bones, that have Physbone component, will automatically set `IsAnimated` to `true`. This may not work sometimes, so please double check!
+- Assigned bones, that have Physbone component, will automatically set `IsAnimated` to `true`. This may not work sometimes, so please double check!
 
 > [!NOTE]
 > If your Physbones are outside from the bones, you definitely need to set `IsAnimated` to `true`.
 
-6) Modular Avatar merges FX Layer, Expression Menu & Parameters into your Avatar during publishing.
+- Modular Avatar merges FX Layer, Expression Menu & Parameters into your Avatar during publishing.
 
 # Instructions:
 
