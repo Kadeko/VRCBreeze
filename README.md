@@ -1,6 +1,8 @@
 # VRCBreeze
 VRCBreeze allows you to create any bone move in the wind. Supports wind strength, direction and randomization!
 
+<img src="Documentation/Screenshot_1.png" width="512" height="929">
+
 # Table of Contents:
 
 - [Guidelines](Documentation/GUIDELINES.md)
