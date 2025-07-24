@@ -6,6 +6,7 @@ VRCBreeze allows you to create any bone move in the wind. Supports wind strength
 
 1) This prefab generates 4 animations for the wind direction:\
    Forward `(+Z)`, Backward `(-Z)`, Left `(+X)` & Right `(-X)`
+   - Directions can be inverted on individual bones.
    - Animations are bending the root bones (with the help of Physbones) to create wind effect.
 
 3) These 4 generated animations are automatically assigned into a blend tree in `FX_Breeze.controller`.
@@ -47,6 +48,9 @@ VRCBreeze allows you to create any bone move in the wind. Supports wind strength
 
 > [!TIP]
 > Generated Animations can be edited! It's always better to do it yourself! Sometimes the bones may rotate in a different way due to bone rotations, so you may have to fix that manually.
+
+> [!TIP]
+> Bones that are going upwards (For example: Ears) should use Inverted X and Z axis option!
 
 # **Problems & Solutions:**
 
