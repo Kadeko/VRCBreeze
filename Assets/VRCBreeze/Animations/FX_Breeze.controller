@@ -717,7 +717,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Breeze/Hair/Direction
+    m_ConditionEvent: VRCBreeze/Direction
     m_EventTreshold: 0.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -1222,7 +1222,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/SmoothAmount
+  m_BlendParameter: VRCBreeze/SmoothAmount
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -4021,7 +4021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 0
-    name: Breeze/Hair/Direction
+    name: VRCBreeze/Direction
     source: 
     value: 0
     valueMin: 0
@@ -5357,7 +5357,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hair Breeze World
+  m_Name: World
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -5365,7 +5365,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Breeze/Hair/+X
+    m_DirectBlendParameter: VRCBreeze/Axis/0/+X
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -5373,7 +5373,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Breeze/Hair/-X
+    m_DirectBlendParameter: VRCBreeze/Axis/0/-X
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -5381,7 +5381,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Breeze/Hair/+Z
+    m_DirectBlendParameter: VRCBreeze/Axis/0/+Z
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -5389,7 +5389,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Breeze/Hair/-Z
+    m_DirectBlendParameter: VRCBreeze/Axis/0/-Z
     m_Mirror: 0
   m_BlendParameter: Breeze/Hair/LocalSpace
   m_BlendParameterY: Blend
@@ -5905,7 +5905,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/SmoothedDirection
+  m_BlendParameter: VRCBreeze/SmoothedDirection
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -6655,7 +6655,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hair Breeze Local
+  m_Name: Local
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -6697,7 +6697,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/SmoothedDirection
+  m_BlendParameter: VRCBreeze/SmoothedDirection
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -7019,7 +7019,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/Strength
+  m_BlendParameter: VRCBreeze/Strength
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -7543,7 +7543,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: b0d1cd12b3459a5438f48e4919fc9118, type: 2}
   m_Tag: 
-  m_SpeedParameter: Breeze/Hair/RandomSpeed
+  m_SpeedParameter: VRCBreeze/RandomSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -8538,7 +8538,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Breeze/Hair/Direction
+    m_ConditionEvent: VRCBreeze/Direction
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -8919,7 +8919,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/SmoothAmount
+  m_BlendParameter: VRCBreeze/SmoothAmount
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -9362,6 +9362,53 @@ BlendTree:
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 4
+--- !u!206 &-1643136515367552874
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Body Breeze World
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/Body/+X
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 0.33333334
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/Body/-X
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 0.6666667
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/Body/+Z
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/Body/-Z
+    m_Mirror: 0
+  m_BlendParameter: Breeze/LocalSpace
+  m_BlendParameterY: Blend
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 4
 --- !u!1107 &-1626027725881648079
 AnimatorStateMachine:
   serializedVersion: 6
@@ -9643,7 +9690,7 @@ BlendTree:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hair Breeze Tree
+  m_Name: Breeze Tree
   m_Childs:
   - serializedVersion: 2
     m_Motion: {fileID: -4861537317896692426}
@@ -9661,7 +9708,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/LocalSpace
+  m_BlendParameter: VRCBreeze/LocalSpace
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -11021,7 +11068,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: Breeze/Hair/Strength
+    m_ConditionEvent: VRCBreeze/Strength
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 470912337802856763}
@@ -11416,91 +11463,91 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/AlwaysActive
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/AlwaysActive
     m_Type: 1
     m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/LocalSpace
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/LocalSpace
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/Strength
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/Strength
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/SmoothedStrength
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/SmoothedStrength
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/RandomStrength
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/RandomStrength
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/Direction
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/Direction
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/SmoothedDirection
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/SmoothedDirection
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/RandomDirection
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/RandomDirection
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/RandomSpeed
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/RandomSpeed
     m_Type: 1
     m_DefaultFloat: 0.125
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/SmoothAmount
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/SmoothAmount
     m_Type: 1
-    m_DefaultFloat: 0.95
+    m_DefaultFloat: 0.9
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/+X
-    m_Type: 1
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/-X
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/Axis/0/+X
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/+Z
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/Axis/0/-X
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: Breeze/Hair/-Z
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/Axis/0/+Z
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: VRCBreeze/Axis/0/-Z
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Breeze
@@ -15288,7 +15335,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 1316497917719401088}
   m_Tag: 
-  m_SpeedParameter: Breeze/Hair/SmoothedStrength
+  m_SpeedParameter: VRCBreeze/SmoothedStrength
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -15743,6 +15790,21 @@ BlendTree:
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
+--- !u!206 &990904008233090083
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs: []
+  m_BlendParameter: Hair/FlowStrength
+  m_BlendParameterY: Blend
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
 --- !u!206 &1003109799468722355
 BlendTree:
   m_ObjectHideFlags: 1
@@ -15788,10 +15850,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 2
-    name: Breeze/Hair/Strength
+    name: VRCBreeze/Strength
     source: 
     value: 0
-    valueMin: 0
+    valueMin: 0.01
     valueMax: 1
     chance: 0
     convertRange: 0
@@ -17593,20 +17655,20 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Breeze/Hair/AlwaysActive
+    m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: -1488554462478473917}
-    m_Threshold: 1
+    m_Threshold: 0.33333334
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: Breeze/Hair/AlwaysActive
+    m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
   m_BlendParameter: Hair/FlowStrength
   m_BlendParameterY: GestureLeftWeight
   m_MinThreshold: 0
-  m_MaxThreshold: 1
+  m_MaxThreshold: 0.33333334
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 4
@@ -17876,7 +17938,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: Breeze/Hair/RandomStrength
+    m_ConditionEvent: VRCBreeze/RandomStrength
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 6415022639634278785}
@@ -18123,7 +18185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 0
-    name: Breeze/Hair/Direction
+    name: VRCBreeze/Direction
     source: 
     value: 1
     valueMin: 0
@@ -18352,7 +18414,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: b0d1cd12b3459a5438f48e4919fc9118, type: 2}
   m_Tag: 
-  m_SpeedParameter: Breeze/Hair/RandomSpeed
+  m_SpeedParameter: VRCBreeze/RandomSpeed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -18629,7 +18691,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: Breeze/Hair/Direction
+    m_ConditionEvent: VRCBreeze/Direction
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1820449274359619116}
@@ -20133,7 +20195,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: Breeze/Hair/RandomDirection
+    m_ConditionEvent: VRCBreeze/RandomDirection
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5183236531420199688}
@@ -21122,7 +21184,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/Direction
+  m_BlendParameter: VRCBreeze/Direction
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -21440,7 +21502,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/SmoothedStrength
+  m_BlendParameter: VRCBreeze/SmoothedStrength
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -21729,7 +21791,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: GestureLeftWeight
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/SmoothedDirection
+  m_BlendParameter: VRCBreeze/SmoothedDirection
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -22012,6 +22074,37 @@ BlendTree:
   m_MinThreshold: 0.1
   m_MaxThreshold: 0.9
   m_UseAutomaticThresholds: 0
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
+--- !u!206 &5390235794780762782
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Body Breeze Tree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: -1643136515367552874}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/AlwaysActive
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 6564877550951119917}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/AlwaysActive
+    m_Mirror: 0
+  m_BlendParameter: Breeze/LocalSpace
+  m_BlendParameterY: Blend
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 0
 --- !u!206 &5413784239370330731
@@ -23249,7 +23342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 2
-    name: Breeze/Hair/Direction
+    name: VRCBreeze/Direction
     source: 
     value: 0
     valueMin: 0
@@ -23586,6 +23679,61 @@ BlendTree:
   m_UseAutomaticThresholds: 0
   m_NormalizedBlendValues: 0
   m_BlendType: 0
+--- !u!206 &6564877550951119917
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Body Breeze Local
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 0
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/AlwaysActive
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 0.25
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/AlwaysActive
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 0.5
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/AlwaysActive
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 0.75
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/AlwaysActive
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: 0}
+    m_Threshold: 1
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 1
+    m_CycleOffset: 0
+    m_DirectBlendParameter: Breeze/AlwaysActive
+    m_Mirror: 0
+  m_BlendParameter: Breeze/SmoothedDirection
+  m_BlendParameterY: Blend
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
 --- !u!206 &6604933040616986414
 BlendTree:
   m_ObjectHideFlags: 1
@@ -23629,7 +23777,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: Breeze/Hair/Direction
+    m_ConditionEvent: VRCBreeze/Direction
     m_EventTreshold: 0.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1335543411984357575}
@@ -23654,7 +23802,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: Breeze/Hair/Strength
+    m_ConditionEvent: VRCBreeze/Strength
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -26690,7 +26838,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Breeze/Hair/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: Breeze/Hair/SmoothAmount
+  m_BlendParameter: VRCBreeze/SmoothAmount
   m_BlendParameterY: Blend
   m_MinThreshold: 1
   m_MaxThreshold: 1
