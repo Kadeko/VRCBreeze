@@ -1,6 +1,6 @@
 [VRCBreeze](../README.md) | **Instructions** | [General Tips](../Documentation/GENERALTIPS.md) | [Guidelines](../Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
 
-<img src="../Documentation/Screenshot_1.png" width="512" height="929">
+<img src="../Documentation/Screenshot_2.png" width="512" height="773">
 
 # Instructions:
 
