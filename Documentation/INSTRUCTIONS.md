@@ -31,7 +31,7 @@
 > Generated Animations can be edited! It's always better to do it yourself! Sometimes the bones may rotate in a different way due to bone rotations, so you may have to fix that manually.
 
 > [!TIP]
-> Bones that are going upwards (For example: Ears) should use Inverted X and Z axis option!
+> Bones that are going upwards (For example: Animal Ears) should use Inverted X and Z axis option!
 
 # **Problems & Solutions:**
 
