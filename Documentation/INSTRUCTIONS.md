@@ -1,4 +1,4 @@
-[VRCBreeze](../README.md) | **Instructions** | [Guidelines](../Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
+[VRCBreeze](../README.md) | **Instructions** | [Guidelines](../Documentation/GUIDELINES.md) | [General Tips](../Documentation/GENERALTIPS.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
 
 <img src="../Documentation/Screenshot_1.png" width="512" height="929">
 
