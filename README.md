@@ -1,11 +1,12 @@
 **VRCBreeze** | [Instructions](Documentation/INSTRUCTIONS.md) | [Guidelines](Documentation/GUIDELINES.md)
 
-# VRCBreeze
-VRCBreeze allows you to create any bone move in the wind. Supports wind strength, direction, local & world space, and randomization!
+<p align="center"><img src="Documentation/VRCB_Header.png" width="512" height="128"></p>
 
-<img src="Documentation/Screenshot_1.png" width="512" height="929">
+VRCBreeze allows you to create any bone move in the wind.
 
 ## **Features:**
+- Wind strength, Direction, Local & World space options, and Randomization!
+
 - Prefab uses 4 Contact Receivers, 1 Contact Sender, 2 Rotation Constraints, 3 Synced Parameters (2 float & 1 boolean) in total of 17 Synced Bits.
 
 - This prefab generates 4 animations for the wind direction:\
