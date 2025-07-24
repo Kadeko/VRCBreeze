@@ -44,7 +44,8 @@ VRCBreeze allows you to create any bone move in the wind. Supports wind strength
 > [!WARNING]
 > Do not leave Bone Weights to 0! This will pretty much do nothing in the animations.
 
-6) Adjust `Wind Strength`. I recommend enabling Gizmos to see how much it will bend. Weight is also affecting Wind Strength (Formula: Wind Strength x Weight).
+6) Adjust `Wind Strength`. I recommend enabling Gizmos to see how much it will bend. Weight is also affecting Wind Strength\
+`Wind Strength * Weight`.
 
 7) Once you have setup all your bones, click `Apply VRCBreeze to Avatar`.\
    Generated animations can be found at `Assets/VRCBreeze/Animations/Generated/` folder.
