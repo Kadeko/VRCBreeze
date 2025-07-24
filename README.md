@@ -3,7 +3,7 @@ VRCBreeze allows you to create any bone move in the wind. Supports wind strength
 
 # Table of Contents:
 
-- [Guidelines](GUIDELINES.md)
+- [Guidelines](Documentation/GUIDELINES.md)
 
 ## **Features:**
 - Prefab uses 4 Contact Receivers, 1 Contact Sender, 2 Rotation Constraints, 3 Synced Parameters (2 float & 1 boolean) in total of 17 Synced Bits.
