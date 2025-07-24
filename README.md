@@ -1,4 +1,4 @@
-**VRCBreeze** | [Instructions](Documentation/INSTRUCTIONS.md) | [Guidelines](Documentation/GUIDELINES.md)
+**VRCBreeze** | [Instructions](Documentation/INSTRUCTIONS.md) | [Guidelines](Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
 
 <p align="center"><img src="Documentation/VRCB_Header.png" width="512" height="128"></p>
 <p align="center">https://github.com/user-attachments/assets/471d30b5-6dd6-4d1b-8b4d-d84232aaf7a5</p>
