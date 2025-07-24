@@ -1,3 +1,5 @@
+[VRCBreeze](README.md) | **Instructions** | [Guidelines](Documentation/GUIDELINES.md)
+
 # Instructions:
 
 **Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)
