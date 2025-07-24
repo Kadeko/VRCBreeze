@@ -1,5 +1,7 @@
 [VRCBreeze](../README.md) | [Instructions](../Documentation/INSTRUCTIONS.md) | **Guidelines**
 
+<p align="center"><img src="../Documentation/VRCB_Header.png" width="512" height="128"></p>
+
 # Guidelines
 
 1) You can use this prefab in Avatars, including public Avatars!
