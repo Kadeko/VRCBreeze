@@ -1,3 +1,5 @@
+[VRCBreeze](README.md) | [Instructions](Documentation/INSTRUCTIONS.md) | **Guidelines**
+
 # Guidelines
 
 1) You can use this prefab in Avatars, including public Avatars!
