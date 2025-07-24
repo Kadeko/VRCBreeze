@@ -1,5 +1,7 @@
 [VRCBreeze](../README.md) | **Instructions** | [Guidelines](../Documentation/GUIDELINES.md)
 
+<img src="../Documentation/Screenshot_1.png" width="512" height="929">
+
 # Instructions:
 
 **Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)
