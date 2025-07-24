@@ -1,6 +1,7 @@
 **VRCBreeze** | [Instructions](Documentation/INSTRUCTIONS.md) | [Guidelines](Documentation/GUIDELINES.md)
 
 <p align="center"><img src="Documentation/VRCB_Header.png" width="512" height="128"></p>
+<p align="center">https://github.com/user-attachments/assets/471d30b5-6dd6-4d1b-8b4d-d84232aaf7a5</p>
 
 VRCBreeze allows you to create any bone move in the wind.
 
