@@ -11,12 +11,12 @@
 
 2) Assign `Head` bone.
 
-3) Assign any bone you would like to move around by wind in `Bone Objects`. Do not assign child bones!
+3) Assign any bone you would like to move around by wind in `Bone Objects`. **Do not assign child bones!**
 
-4) Adjust every individual weight to your liking.
+4) Adjust every individual weight to your liking. You can also invert X and Z directions!
 
 > [!WARNING]
-> Do not leave Bone Weights to 0! This will pretty much do nothing in the animations.
+> Do not leave Bone Weights to 0! This will do nothing in the animations.
 
 6) Adjust `Wind Strength`. I recommend enabling Gizmos to see how much it will bend. Weight is also affecting Wind Strength\
 `Wind Strength * Weight`.
