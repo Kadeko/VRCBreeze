@@ -30,7 +30,7 @@ VRCBreeze allows you to create any bone move in the wind.
   - Current solution is to `uncheck Avoid Name Collisions` inside `Armature Merge` component & during play mode, click `Apply VRCBreeze to Avatar` button.
 
 - VRCFury breaks animations that have missing objects inside generated animations.
-  - Current solution is not using VRCFury, if that happens with animations.
+  - Current solution is disabling VRCFury, if that happens with animations.
  
 - Physbones, that are outside of the bones, will not have `IsAnimated` automatically set to `true`.
    - Current solution is enabling it manually.
