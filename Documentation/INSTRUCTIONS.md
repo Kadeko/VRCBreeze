@@ -1,12 +1,12 @@
 # Instructions:
 
-### **Requires:** Modular Avatar
+**Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)
 
 > [!NOTE]
 > Modular Avatar is used in merging FX Layers, Expression Menu & Expression Parameters.\
-> If you are advanced creator, you do not need this.
+> If you are advanced creator and know how to merge everything, you do not need this then.
 
-### **Instructions:**
+## **Steps:**
 1) Drag `VRCBreeze.prefab` inside your Avatar. Do not unpack it.
 
 2) Assign `Head` bone.
