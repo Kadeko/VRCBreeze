@@ -1,4 +1,4 @@
-[VRCBreeze](README.md) | **Instructions** | [Guidelines](Documentation/GUIDELINES.md)
+[VRCBreeze](../README.md) | **Instructions** | [Guidelines](Documentation/GUIDELINES.md)
 
 # Instructions:
 
