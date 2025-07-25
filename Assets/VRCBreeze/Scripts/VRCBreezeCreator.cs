@@ -56,6 +56,11 @@ namespace VRCBreeze
 
         public void Initialize()
         {
+            if (this.transform.parent == null)
+            {
+                Debug.LogError($"{PREFIX} VRCBreeze.prefab is not under the Avatar!");
+                return;
+            }
             if (boneObjects.Length == 0)
             {
                 Debug.LogError($"{PREFIX} Missing Bones! Assign your bones in Bone Objects list!");
@@ -84,12 +89,8 @@ namespace VRCBreeze
             {
                 if (boneObjects[i].breezeBone == null || boneObjects[i].breezeBoneWeight == 0f) continue;
 
-                string path = GetRelativePath(boneObjects[i].breezeBone.gameObject);
-                int armatureIndex = path.IndexOf("Armature");
-                if (armatureIndex >= 0)
-                    path = path.Substring(armatureIndex);
-
-                Quaternion worldStartRot = boneObjects[i].breezeBone.transform.rotation;
+                Transform armatureRoot = FindArmatureRoot(boneObjects[i].breezeBone.transform);
+                string path = AnimationUtility.CalculateTransformPath(boneObjects[i].breezeBone.transform, armatureRoot);
 
                 Vector3 axis = Vector3.up;
                 float angle = windStrength * boneObjects[i].breezeBoneWeight;
@@ -114,6 +115,7 @@ namespace VRCBreeze
                         break;
                 }
 
+                Quaternion worldStartRot = boneObjects[i].breezeBone.transform.rotation;
                 Vector3 rotationAxis = Vector3.Cross(Vector3.up, axis).normalized;
                 if (rotationAxis == Vector3.zero) 
                     rotationAxis = Vector3.forward;
@@ -164,7 +166,7 @@ namespace VRCBreeze
             AssetDatabase.SaveAssets();
         }
 
-        void SetAnimationClipSettings(AnimationClip clip, AnimationClipSettings settings)
+        private void SetAnimationClipSettings(AnimationClip clip, AnimationClipSettings settings)
         {
             var serializedClip = new SerializedObject(clip);
             var settingsProperty = serializedClip.FindProperty("m_AnimationClipSettings");
@@ -172,9 +174,14 @@ namespace VRCBreeze
             serializedClip.ApplyModifiedProperties();
         }
 
-        private string GetRelativePath(GameObject obj)
+        private Transform FindArmatureRoot(Transform target)
         {
-            return AnimationUtility.CalculateTransformPath(obj.transform, transform);
+            Transform current = target;
+            while (current.parent != null && current != this.transform.parent.transform)
+            {
+                current = current.parent;
+            }
+            return current;
         }
         #endregion
 

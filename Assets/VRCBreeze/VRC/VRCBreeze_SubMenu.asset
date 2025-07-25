@@ -75,6 +75,5 @@ MonoBehaviour:
     value: 1
     style: 0
     subMenu: {fileID: 0}
-    subParameters:
-    - name: Breeze/Hair/RandomSpeed
+    subParameters: []
     labels: []
