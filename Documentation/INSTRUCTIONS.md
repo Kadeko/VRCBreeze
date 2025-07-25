@@ -58,4 +58,4 @@ Check, if these bones still exist in the generated animations. If the objects ar
 
 **Problem 3:** Animations are not being created!
 
-**Solution:** Make sure your Avatar's armature is actually named as "Armature" **This should be fixed in future release!**
+**Solution:** Make sure your Avatar's armature is actually named as "Armature" **This should be fixed in future release! (v1.2.7)**
