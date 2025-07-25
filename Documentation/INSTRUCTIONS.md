@@ -55,3 +55,7 @@ Check, if these bones still exist in the generated animations. If the objects ar
 **Problem 2:** Script has errors!
 
 **Solution:** Check console for details. Make sure your SDK version is up to date and have Modular Avatar imported.
+
+**Problem 3:** Animations are not being created!
+
+**Solution:** Make sure your Avatar's armature is actually named as "Armature"
