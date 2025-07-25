@@ -16,7 +16,7 @@
 > [!IMPORTANT]
 > - **Do not unpack it.**
 
-3) Assign `Head` bone.
+3) Assign `Wind Anchor`.That can be your Hips, Spine, Head or anything!
 
 4) Assign any bone you would like to move around by wind in `Bone Objects`.
 
