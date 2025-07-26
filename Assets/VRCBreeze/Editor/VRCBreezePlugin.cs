@@ -8,7 +8,7 @@ namespace VRCBreeze
     {
         protected override void Configure()
         {
-            InPhase(BuildPhase.Generating)
+            InPhase(BuildPhase.Transforming)
                 .AfterPlugin("nadena.dev.modular-avatar")
                 .WithRequiredExtension(typeof(VRCBreezeContext), seq => seq.Run(VRCBreezeInstallerPass.Instance));
         }
