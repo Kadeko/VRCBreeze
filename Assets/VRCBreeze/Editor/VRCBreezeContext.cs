@@ -65,18 +65,29 @@ namespace VRCBreeze
 
         private void SetupPhysbones(VRCBreezeCreator creator)
         {
-            int successfulObjCount = 0;
-            var tempPhysBones = new List<VRCPhysBone>();
+            var allPhysBones = context.AvatarRootObject.GetComponentsInChildren<VRCPhysBone>(true);
+            if (allPhysBones.Length == 0) return;
             foreach (var boneObject in creator.boneObjects)
             {
                 if (boneObject.breezeBone == null) continue;
-                boneObject.breezeBone.GetComponentsInChildren(true, tempPhysBones);
-                foreach (var bone in tempPhysBones)
+                var boneTransform = boneObject.breezeBone.transform;
+                foreach (var pb in allPhysBones)
                 {
-                    if (bone == null) continue;
-                    bone.isAnimated = true;
+                    var transform = pb.GetRootTransform();
+                    if (transform == boneTransform || boneTransform.IsChildOf(transform))
+                    {
+                        bool isIgnored = false;
+                        foreach (var ignoreTransform in pb.ignoreTransforms)
+                        {
+                            if (ignoreTransform == boneTransform || boneTransform.IsChildOf(ignoreTransform))
+                            {
+                                isIgnored = true;
+                                break;
+                            }
+                        }
+                        if (!isIgnored) pb.isAnimated = true;
+                    }
                 }
-                successfulObjCount++;
             }
         }
 
