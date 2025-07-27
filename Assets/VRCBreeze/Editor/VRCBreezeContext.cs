@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using UnityEditor.Animations;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDK3.Dynamics.PhysBone.Components;
@@ -42,22 +43,23 @@ namespace VRCBreeze
         {
             if (creator == null) return;
 
-            if (creator.boneObjects.Length == 0) return;
+            if (creator.boneObjects != null && creator.boneObjects.Length > 0)
+            {
+                // Setup Physbones
+                SetupPhysbones(creator);
 
-            // Setup Physbones
-            SetupPhysbones(creator);
+                // Create animations
+                CreateBreezeAnimation(creator, Direction.Forward);
+                CreateBreezeAnimation(creator, Direction.Backward);
+                CreateBreezeAnimation(creator, Direction.Left);
+                CreateBreezeAnimation(creator, Direction.Right);
 
-            // Create animations
-            CreateBreezeAnimation(creator, Direction.Forward);
-            CreateBreezeAnimation(creator, Direction.Backward);
-            CreateBreezeAnimation(creator, Direction.Left);
-            CreateBreezeAnimation(creator, Direction.Right);
+                // Assign animations to controller
+                AssignAnimationsToController(creator);
 
-            // Assign animations to controller
-            AssignAnimationsToController(creator);
-
-            // Set constraints
-            SetConstraints(creator);
+                // Set constraints
+                SetConstraints(creator);
+            }
 
             // Remove creator component
             DestroyImmediate(creator);
@@ -99,10 +101,11 @@ namespace VRCBreeze
             {
                 if (boneObject.breezeBone == null || boneObject.breezeBoneWeight == 0f) continue;
 
-                string path = asc.ObjectPathRemapper.GetVirtualPathForObject(boneObject.breezeBone.transform);
+                var boneTransform = boneObject.breezeBone.transform;
+                var path = asc.ObjectPathRemapper.GetVirtualPathForObject(boneTransform);
 
-                Vector3 axis = Vector3.up;
-                float angle = creator.windStrength * boneObject.breezeBoneWeight;
+                var axis = Vector3.up;
+                var angle = creator.windStrength * boneObject.breezeBoneWeight;
 
                 switch (direction)
                 {
@@ -124,24 +127,24 @@ namespace VRCBreeze
                         break;
                 }
 
-                var boneTransform = boneObject.breezeBone.transform;
-                Quaternion worldStartRot = boneTransform.rotation;
-                Vector3 rotationAxis = Vector3.Cross(Vector3.up, axis).normalized;
-                if (rotationAxis == Vector3.zero)
+                var worldStartRot = boneTransform.rotation;
+                var rotationAxis = Vector3.Cross(Vector3.up, axis).normalized;
+                if (Mathf.Approximately(rotationAxis.sqrMagnitude, 0f))
                     rotationAxis = Vector3.forward;
 
-                Quaternion worldMiddleRot = Quaternion.AngleAxis(angle, rotationAxis) * worldStartRot;
+                var worldMiddleRot = Quaternion.AngleAxis(angle, rotationAxis) * worldStartRot;
 
-                Quaternion localStartRot = worldStartRot;
-                Quaternion localMiddleRot = worldMiddleRot;
+                var localStartRot = worldStartRot;
+                var localMiddleRot = worldMiddleRot;
                 var parent = boneTransform.parent;
                 if (parent != null)
                 {
-                    localStartRot = Quaternion.Inverse(parent.rotation) * localStartRot;
-                    localMiddleRot = Quaternion.Inverse(parent.rotation) * localMiddleRot;
+                    var invertParentRotation = Quaternion.Inverse(parent.rotation);
+                    localStartRot = invertParentRotation * localStartRot;
+                    localMiddleRot = invertParentRotation * localMiddleRot;
                 }
 
-                float keyframeTime = creator.moveBonesAtRandomTime ? UnityRandom.Range(0.35f, 0.65f) : 0.5f;
+                var keyframeTime = creator.moveBonesAtRandomTime ? UnityRandom.Range(0.35f, 0.65f) : 0.5f;
 
                 var curveX = new AnimationCurve(new Keyframe(0f, localStartRot.x), new Keyframe(keyframeTime, localMiddleRot.x), new Keyframe(1f, localStartRot.x));
                 var curveY = new AnimationCurve(new Keyframe(0f, localStartRot.y), new Keyframe(keyframeTime, localMiddleRot.y), new Keyframe(1f, localStartRot.y));
@@ -154,7 +157,10 @@ namespace VRCBreeze
                 clip.SetFloatCurve(path, typeof(Transform), "localRotation.w", curveW);
             }
 
-            clip.WrapMode = WrapMode.Loop;
+            clip.Settings = new AnimationClipSettings
+            {
+                loopTime = true,
+            };
 
             switch (direction)
             {
