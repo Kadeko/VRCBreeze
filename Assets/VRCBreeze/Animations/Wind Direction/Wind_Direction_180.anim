@@ -29,7 +29,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    path: VRCBreeze/WindDirection_RootConstraint/WindDirection_Root
+    path: WindDirection_RootConstraint/WindDirection_Root
   m_PositionCurves: []
   m_ScaleCurves: []
   m_FloatCurves: []
@@ -42,7 +42,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3239295660
+      path: 970358561
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -89,7 +89,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.x
-    path: VRCBreeze/WindDirection_RootConstraint/WindDirection_Root
+    path: WindDirection_RootConstraint/WindDirection_Root
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -110,7 +110,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.y
-    path: VRCBreeze/WindDirection_RootConstraint/WindDirection_Root
+    path: WindDirection_RootConstraint/WindDirection_Root
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -131,7 +131,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: localEulerAnglesRaw.z
-    path: VRCBreeze/WindDirection_RootConstraint/WindDirection_Root
+    path: WindDirection_RootConstraint/WindDirection_Root
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -144,7 +144,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: VRCBreeze/WindDirection_RootConstraint/WindDirection_Root
+    path: WindDirection_RootConstraint/WindDirection_Root
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -156,7 +156,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: VRCBreeze/WindDirection_RootConstraint/WindDirection_Root
+    path: WindDirection_RootConstraint/WindDirection_Root
     classID: 4
     script: {fileID: 0}
     flags: 0
@@ -168,7 +168,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: VRCBreeze/WindDirection_RootConstraint/WindDirection_Root
+    path: WindDirection_RootConstraint/WindDirection_Root
     classID: 4
     script: {fileID: 0}
     flags: 0
