@@ -4,8 +4,9 @@
 
 # General Tips:
 
-- Best Avatar for this Prefab would have hair merged into your Avatar's armature & Physbones should be in the bones.
-
 - I recommend enabling "Move Bones At Random Time" so all your bones move at different speed!
 
 - Bone moving in wrong direction? Try inverting X or Z axis!
+
+- For Advanced Creators, generated animations can be edited! This way, you would not need to use the tool and instead, merge FX controller, Parameters and the Menu!
+  - Tutorial for this will be added soon!
