@@ -16,46 +16,34 @@
 > [!IMPORTANT]
 > - **Do not unpack it.**
 
-3) Assign `Wind Anchor`.That can be your Hips, Spine, Head or anything!
+3) Assign `Wind Anchor`. That can be your Hips, Spine, Head or anything in your Avatar's Armature!
 
 4) Assign any bone you would like to move around by wind in `Bone Objects`.
 
 > [!IMPORTANT]
 > - Do not assign child bones!
-> - Physbones, that are outside of the bones, will need to have `IsAnimated` enabled manually!
 
-5) Adjust every individual `Weight` to your liking. You can also invert `X` and `Z` directions!
+5) Adjust every individual bone's `Weight` to your liking. You can also invert `X` and `Z` directions!
 
 > [!IMPORTANT]
 > - Do not leave `Bone Weights` to `0`! Otherwise this bone will be ignored during animation generation.
 
-6) Adjust `Wind Strength`. I recommend enabling `Gizmos` to see how much it will bend. `Weight` is also affecting `Wind Strength`\
+6) Adjust `Wind Strength`. I recommend enabling `Gizmos` to see how much it will bend. `Weight` multiplies the `Wind Strength`\
 `Wind Strength * Weight`.
 
-7) Once you have setup all your bones, click `Apply VRCBreeze to Avatar`.\
-   Generated animations can be found at `Assets/VRCBreeze/Animations/Generated/` folder.
-
-8) Click `Finish` or delete `VRC Hair Breeze Creator` component before uploading the Avatar.
+7) Publish your avatar! Enjoy the breeze!
 
 > [!TIP]
-> - You can always return back to editing by `Right Clicking` the `Component` -> `Removed Components` -> `Revert`.
->
-> - Generated Animations can be edited! It's always better to do it yourself! Sometimes the bones may rotate in a different way due to bone rotations, so you may have to fix that manually.
->
 > - Bones that are going upwards (For example: Animal Ears) should use Inverted `X` and `Z` axis option!
 
-# **Problems & Solutions:**
+# **Troubleshooting:**
 
 **Problem 1:** My hair doesn't move!
 
-**Solution:** Make sure the Physbones have `IsAnimated` set to `true`.\
+**Solution:**
 You may have to increase `Wind Strength` in Unity. Make sure all `Bone Weights` are `above 0`.\
 Check, if these bones still exist in the generated animations. If the objects are missing, you may have to rename Hierarchy manually, or create hair movement by yourself.
 
 **Problem 2:** Script has errors!
 
 **Solution:** Check console for details. Make sure your SDK version is up to date and have Modular Avatar imported.
-
-**Problem 3:** Animations are not being created!
-
-**Solution:** Make sure your Avatar's armature is actually named as "Armature" **This should be fixed in future release! (v1.2.7)**

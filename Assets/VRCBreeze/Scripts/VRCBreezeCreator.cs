@@ -15,13 +15,13 @@ namespace VRCBreeze
         public GameObject breezeBone;
         [Tooltip("How much is this bone influenced by wind."), Range(0f, 1f)]
         public float breezeBoneWeight = 1f;
-        [Tooltip("Inverts rotation in X (left/right) axis.")]
+        [Tooltip("Inverts rotation in X axis. (left / right)")]
         public bool invertX = false;
-        [Tooltip("Inverts rotation in Z (forward/backward) axis.")]
+        [Tooltip("Inverts rotation in Z axis. (forward / backward)")]
         public bool invertZ = false;
     }
 
-    [AddComponentMenu("VRC Breeze Creator")]
+    [AddComponentMenu("VRCBreeze/VRC Breeze Creator")]
     [HelpURL("https://github.com/Kadeko/VRCBreeze/")]
     public class VRCBreezeCreator : MonoBehaviour, IEditorOnly, IVirtualizeAnimatorController
     {

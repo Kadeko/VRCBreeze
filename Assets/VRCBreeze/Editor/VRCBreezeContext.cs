@@ -105,25 +105,21 @@ namespace VRCBreeze
                 var path = asc.ObjectPathRemapper.GetVirtualPathForObject(boneTransform);
 
                 var axis = Vector3.up;
-                var angle = creator.windStrength * boneObject.breezeBoneWeight;
+                var angle = Mathf.Abs(creator.windStrength * boneObject.breezeBoneWeight);
 
                 switch (direction)
                 {
                     case Direction.Forward:
                         axis = boneObject.invertZ ? Vector3.forward : Vector3.back;
-                        angle = Mathf.Abs(angle);
                         break;
                     case Direction.Backward:
                         axis = boneObject.invertZ ? Vector3.back : Vector3.forward;
-                        angle = Mathf.Abs(angle);
                         break;
                     case Direction.Left:
                         axis = boneObject.invertX ? Vector3.right : Vector3.left;
-                        angle = Mathf.Abs(angle);
                         break;
                     case Direction.Right:
                         axis = boneObject.invertX ? Vector3.left : Vector3.right;
-                        angle = Mathf.Abs(angle);
                         break;
                 }
 
@@ -190,6 +186,8 @@ namespace VRCBreeze
                 return;
             }
 
+            // Breeze Layer
+
             VirtualLayer fxLayer = null;
             foreach (var layer in sourceAnimatorController.Layers)
             {
@@ -204,6 +202,8 @@ namespace VRCBreeze
             {
                 return;
             }
+
+            // Breeze Blend Tree
 
             VirtualState hairState = null;
             foreach (var state in fxLayer.StateMachine.AllStates())

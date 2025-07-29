@@ -16,13 +16,6 @@ namespace VRCBreeze
             fontStyle = FontStyle.Normal,
             alignment = TextAnchor.MiddleCenter,
             richText = true,
-            wordWrap = true,
-        };
-        private static GUIStyle DefaultButtonStyleUnwrap => new GUIStyle(GUI.skin.button)
-        {
-            fontStyle = FontStyle.Normal,
-            alignment = TextAnchor.MiddleCenter,
-            richText = true,
             wordWrap = false,
         };
 
@@ -40,7 +33,7 @@ namespace VRCBreeze
             {
                 headerSection.height = headerSize;
                 headerSection.width = headerSize * 3.94f;
-                headerSection.x = 0f;/*(Screen.width / 2) - headerSection.width / 2;*/
+                headerSection.x = 0f;
                 headerSection.y = 0f;
 
                 GUI.DrawTexture(headerSection, header_mainTexture);
@@ -50,14 +43,19 @@ namespace VRCBreeze
 
             EditorGUILayout.BeginHorizontal();
             //GUILayout.FlexibleSpace();
-            EditorGUILayout.LabelField("Created by:", GUILayout.Height(25f)/*, GUILayout.Width(Screen.width / 6f - 20f)*/);
-            if (GUILayout.Button("Kadeko", DefaultButtonStyleUnwrap, GUILayout.Height(25f)/*, GUILayout.Width(Screen.width / 6f - 20f)*/))
+            EditorGUILayout.LabelField("Created by:", GUILayout.Height(25f));
+            if (GUILayout.Button("Kadeko", DefaultButtonStyle, GUILayout.Height(25f)))
                 Application.OpenURL("https://x.com/kadeko_vrc");
-            if (GUILayout.Button("InviaWaffles", DefaultButtonStyleUnwrap, GUILayout.Height(25f)/*, GUILayout.Width(Screen.width / 6f - 20f)*/))
+            if (GUILayout.Button("InviaWaffles", DefaultButtonStyle, GUILayout.Height(25f)))
                 Application.OpenURL("https://x.com/InviaWaffles");
+            if (GUILayout.Button("Vistanz", DefaultButtonStyle, GUILayout.Height(25f)))
+            {
+                Application.OpenURL("https://www.github.com/JLChnToZ");
+                Application.OpenURL("https://xtl.booth.pm/");
+            }
             EditorGUILayout.EndHorizontal();
 
-            if (GUILayout.Button("Help & Documentation", DefaultButtonStyleUnwrap, GUILayout.Height(25f)/*, GUILayout.Width(Screen.width / 6f - 20f)*/))
+            if (GUILayout.Button("Help & Documentation", DefaultButtonStyle, GUILayout.Height(25f)))
                 Application.OpenURL("https://github.com/Kadeko/VRCBreeze/");
 
             EditorGUILayout.Space(15f);
