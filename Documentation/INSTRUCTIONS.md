@@ -7,8 +7,7 @@
 **Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)
 
 > [!NOTE]
-> - Modular Avatar is used in merging FX Layers, Expression Menu & Expression Parameters.
-> - If you are advanced creator and know how to merge everything, you do not need this then.
+> - Modular Avatar is used in merging Expression Menu & Expression Parameters.
 
 ## **Steps:**
 1) Drag `VRCBreeze.prefab` inside your Avatar.
@@ -21,7 +20,7 @@
 4) Assign any bone you would like to move around by wind in `Bone Objects`.
 
 > [!IMPORTANT]
-> - Do not assign child bones!
+> - Do not assign every child bone that is under the root!!
 
 5) Adjust every individual bone's `Weight` to your liking. You can also invert `X` and `Z` directions!
 
