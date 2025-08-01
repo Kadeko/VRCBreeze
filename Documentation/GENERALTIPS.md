@@ -10,3 +10,5 @@
 
 - For Advanced Creators, generated animations can be edited! This way, you would not need to use the tool and instead, merge FX controller, Parameters and the Menu!
   - Tutorial for this will be added soon!
+
+- If your bones are scaled into negative axis, the prefab may not work properly! You may have to go in Blender or other 3D software to Scale into negative value, Apply Transform and then Invert Normals to all of your Polygons.
