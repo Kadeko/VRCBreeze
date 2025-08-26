@@ -25,8 +25,9 @@ VRCBreeze is Non-Destructive prefab that allows you to create any bone move in t
 
 - Modular Avatar merges Expression Menu & Parameters into your Avatar during publishing.
 
-- Most important feature: It is Non-Destructive, meaning it will never change your Avatar in Unity until publishing!
+- Most important feature: It is Non-Destructive, meaning it will never overwrite your Avatar in Unity before & after publishing!
 
 ## **Known Issues:**
 
-- None! Previous issues have been fixed in Version 1.3.0!
+- D4rkpl4y3r's Avatar Optimizer may cause some issues with the moving bones!
+   - Try disabling "Optimize FX Layer" option or entire tool, if possible.
