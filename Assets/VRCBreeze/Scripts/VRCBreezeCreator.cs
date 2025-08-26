@@ -11,9 +11,9 @@ namespace VRCBreeze
     [System.Serializable]
     public class BoneObjects
     {
-        [Tooltip("Bones, that will be controlled by wind.")]
+        [Tooltip("Bone, that will be controlled by wind.")]
         public GameObject breezeBone;
-        [Tooltip("How much is this bone influenced by wind."), Range(0f, 1f)]
+        [Tooltip("How much is this bone influenced by wind. The weight multiplies by Wind Strength.\nWind Strength * Weight."), Range(0f, 2f)]
         public float breezeBoneWeight = 1f;
         [Tooltip("Inverts rotation in X axis. (left / right)")]
         public bool invertX = false;
@@ -32,6 +32,9 @@ namespace VRCBreeze
         [Tooltip("How strong is the wind."), Min(0f)]
         public float windStrength = 10f;
 
+        [Tooltip("How long does the wind blow. Higher Number = Slower Movement. By default, it's 1."), Min(0.5f)]
+        public float windLength = 1f;
+
         [Tooltip("If enabled, Bone keyframes are slightly randomized around the middle of the AnimationClip.\nIf disabled, Bone keyframes are placed in the middle of the AnimationClip.")]
         public bool moveBonesAtRandomTime = false;
 
@@ -44,7 +47,10 @@ namespace VRCBreeze
         [Tooltip("Requires 'FX_Breeze' Animator Controller.\nYou can find this at: 'Assets/VRCBreeze/Animations/FX_Breeze.controller'")]
         public RuntimeAnimatorController sourceAnimatorController;
 
-        [SerializeField]
+        [Space, Header("Debug:"), Tooltip("Automatically tries to check, if your FX is using Write Defaults ON/OFF during Avatar installment. If your controller has mixed Write Defaults, we recommend to disable this option.")]
+        public bool enableAutomaticWriteDefaults = true;
+
+        [Tooltip("Show gizmos on selected Breeze Bones. Avatar (or VRCBreeze Object) must be selected and Unity Gizmos enabled! Useful when setting up Wind Strength and Breeze Bone Weight."), SerializeField]
         private bool enableGizmos = false;
 
         private bool isAbsolute;

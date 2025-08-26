@@ -278,11 +278,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   windAnchor: {fileID: 0}
   windStrength: 10
+  windLength: 1
   moveBonesAtRandomTime: 0
   boneObjects: []
   rotationConstraint: {fileID: 215003812590759311}
   sourceAnimatorController: {fileID: 9100000, guid: 4aa810356bb7e8748a2971510a5100b2,
     type: 2}
+  enableAutomaticWriteDefaults: 1
   enableGizmos: 0
 --- !u!114 &1880038099476336501
 MonoBehaviour:

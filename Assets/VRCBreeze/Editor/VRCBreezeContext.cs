@@ -81,6 +81,7 @@ namespace VRCBreeze
                         bool isIgnored = false;
                         foreach (var ignoreTransform in pb.ignoreTransforms)
                         {
+                            if (ignoreTransform == null) continue;
                             if (ignoreTransform == boneTransform || boneTransform.IsChildOf(ignoreTransform))
                             {
                                 isIgnored = true;
@@ -140,12 +141,14 @@ namespace VRCBreeze
                     localMiddleRot = invertParentRotation * localMiddleRot;
                 }
 
-                var keyframeTime = creator.moveBonesAtRandomTime ? UnityRandom.Range(0.35f, 0.65f) : 0.5f;
+                var endKeyframeTime = creator.windLength;
+                var halfKeyframeTime = endKeyframeTime / 2f;
+                var middleKeyframeTime = creator.moveBonesAtRandomTime ? halfKeyframeTime + UnityRandom.Range(-0.15f, 0.15f) : halfKeyframeTime; // var middleKeyframeTime = creator.moveBonesAtRandomTime ? UnityRandom.Range(0.35f, 0.65f) : 0.5f;
 
-                var curveX = new AnimationCurve(new Keyframe(0f, localStartRot.x), new Keyframe(keyframeTime, localMiddleRot.x), new Keyframe(1f, localStartRot.x));
-                var curveY = new AnimationCurve(new Keyframe(0f, localStartRot.y), new Keyframe(keyframeTime, localMiddleRot.y), new Keyframe(1f, localStartRot.y));
-                var curveZ = new AnimationCurve(new Keyframe(0f, localStartRot.z), new Keyframe(keyframeTime, localMiddleRot.z), new Keyframe(1f, localStartRot.z));
-                var curveW = new AnimationCurve(new Keyframe(0f, localStartRot.w), new Keyframe(keyframeTime, localMiddleRot.w), new Keyframe(1f, localStartRot.w));
+                var curveX = new AnimationCurve(new Keyframe(0f, localStartRot.x), new Keyframe(middleKeyframeTime, localMiddleRot.x), new Keyframe(endKeyframeTime, localStartRot.x));
+                var curveY = new AnimationCurve(new Keyframe(0f, localStartRot.y), new Keyframe(middleKeyframeTime, localMiddleRot.y), new Keyframe(endKeyframeTime, localStartRot.y));
+                var curveZ = new AnimationCurve(new Keyframe(0f, localStartRot.z), new Keyframe(middleKeyframeTime, localMiddleRot.z), new Keyframe(endKeyframeTime, localStartRot.z));
+                var curveW = new AnimationCurve(new Keyframe(0f, localStartRot.w), new Keyframe(middleKeyframeTime, localMiddleRot.w), new Keyframe(endKeyframeTime, localStartRot.w));
 
                 clip.SetFloatCurve(path, typeof(Transform), "localRotation.x", curveX);
                 clip.SetFloatCurve(path, typeof(Transform), "localRotation.y", curveY);
@@ -304,8 +307,11 @@ namespace VRCBreeze
             fx.Parameters = fx.Parameters.SetItems(sourceAnimatorController.Parameters);
             foreach (var layer in sourceAnimatorController.Layers)
             {
-                foreach (var state in layer.StateMachine.AllStates())
-                    state.WriteDefaultValues = writeDefaults;
+                if (creator.enableAutomaticWriteDefaults)
+                {
+                    foreach (var state in layer.StateMachine.AllStates())
+                        state.WriteDefaultValues = writeDefaults;
+                }
                 fx.AddLayer(LayerPriority.Default, layer);
             }
         }
