@@ -6,9 +6,9 @@
 VRCBreeze is Non-Destructive prefab that allows you to create any bone move in the wind. It can be your hair, clothes, anything!
 
 ## **Features:**
-- Wind strength, Direction, Local & World space options, and Randomization!
+- Wind strength, Direction, Local & World space options, and Strength/Direction Randomization!
 
-- Prefab uses:
+- Avatar uses:
    - 4 Contact Receivers,
    - 1 Contact Sender,
    - 2 Rotation Constraints,

@@ -22,6 +22,10 @@
 > [!IMPORTANT]
 > - Do not assign every child bone that is under the root!!
 
+> [!TIP]
+> - With 1.3.2+ version, you can use "Quick Setup" tool that allows you to drag multiple bones at once!
+> - You can find this tool at: "Tools/VRCBreeze/Quick Setup"
+
 5) Adjust every individual bone's `Weight` to your liking. You can also invert `X` and `Z` directions!
 
 > [!IMPORTANT]

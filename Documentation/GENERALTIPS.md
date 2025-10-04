@@ -8,6 +8,8 @@
 
 - Bone moving in wrong direction? Try inverting X or Z axis!
 
+- Having too many bones? You can try using "Quick Setup" tool that can be found at: "Tools/VRCBreeze/Quick Setup"!
+
 - For Advanced Creators, generated animations can be edited! This way, you would not need to use the tool and instead, merge FX controller, Parameters and the Menu!
   - Tutorial for this will be added soon!
 
