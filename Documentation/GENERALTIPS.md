@@ -13,8 +13,8 @@
 - For Advanced Creators, generated animations can be edited! This way, you would not need to use the tool and instead, merge FX controller, Parameters and the Menu!
   - Tutorial for this will be added soon!
 
-- If your bones are scaled into negative axis, the prefab may not work properly! You may have to go in Blender or other 3D software to Scale into negative value, Apply Transform and then Invert Normals to all of your Polygons.
+- If your bones are scaled into negative axis, the prefab may not work properly!
 
 - If you have multiple armatures in your Avatar, you need to use the last child armature for the Breeze Bone!
   - Example: If you have a Hair mesh, which has its own Armature inside your Avatar's Head bone, you need to use the Hair's Armature for assigning Breeze Bones instead!
-  - I recommend to merge your armatures with Modular Avatar or any 3D modelling software like Blender.
+  - I recommend to merge your armatures with Modular Avatar or merge manually by using 3D software like Blender.

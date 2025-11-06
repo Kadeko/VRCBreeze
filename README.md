@@ -9,9 +9,9 @@ VRCBreeze is Non-Destructive prefab that allows you to create any bone move in t
 - Wind strength, Direction, Local & World space options, and Strength/Direction Randomization!
 
 - Avatar uses:
-   - 4 Contact Receivers,
+   - 5 Contact Receivers,
    - 1 Contact Sender,
-   - 2 Rotation Constraints,
+   - 4 VRC Constraints,
    - 3 Synced Parameters: 2 float & 1 boolean, in total of 17 Synced Bits.
 
 - This prefab generates 4 animations for the wind direction:\

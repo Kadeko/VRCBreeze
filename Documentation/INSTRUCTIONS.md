@@ -2,7 +2,7 @@
 
 <img src="../Documentation/Screenshot_3.png" width="512" height="771">
 
-# Instructions:
+# Instructions for Avatar:
 
 **Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)
 
@@ -49,4 +49,4 @@ Check, if these bones still exist in the generated animations. If the objects ar
 
 **Problem 2:** Script has errors!
 
-**Solution:** Check console for details. Make sure your SDK version is up to date and have Modular Avatar imported.
+**Solution:** Check console for details. Make sure your SDK version is up to date and have Modular Avatar installed.

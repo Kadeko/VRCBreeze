@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -13,9 +14,9 @@ namespace VRCBreeze {
         public VRCBreezeCreator VRCBreezePrefab;
 
         [Header("Bone Settings:"), Tooltip("Bone, that will be controlled by wind.")]
-        public List<GameObject> breezeBones;
+        public List<GameObject> newBreezeBones;
         [Tooltip("How much is this bone influenced by wind. The weight multiplies by Wind Strength.\nWind Strength * Weight."), Range(0f, 2f)]
-        public float breezeBoneWeight = 1f;
+        public float newBreezeBoneWeights = 1f;
 
         [MenuItem("Tools/VRCBreeze/Quick Setup")]
         public static void ShowWindow()
@@ -47,62 +48,86 @@ namespace VRCBreeze {
 
             rootVisualElement.Add(new SpaceElement(10));
 
-            var setupButton = new Button(() => SetupBones())
-            {
-                text = "Setup VRCBreeze",
-                tooltip = "Warning, Destructive method! Once you click on this button, it will overwrite your VRCBreeze settings, such as: Breeze Bones and Breeze Bone Weight!"
-            };
-            rootVisualElement.Add(setupButton);
-
-            rootVisualElement.Add(new SpaceElement(5));
-
             var retrieveButton = new Button(() => RetrieveBones())
             {
                 text = "Copy Bones from VRCBreeze",
                 tooltip = "Clears current settings from Quick Setup and Copies bones from assigned VRCBreeze prefab in your Avatar."
             };
             rootVisualElement.Add(retrieveButton);
+
+            var clearButton = new Button(() => ClearBonesFromPrefab())
+            {
+                text = "Clear Bones from VRCBreeze",
+                tooltip = "Removes current Breeze Bones from VRCBreeze prefab in your Avatar. Useful for resetting the list."
+            };
+            rootVisualElement.Add(clearButton);
+
+            rootVisualElement.Add(new SpaceElement(10));
+
+            var setupButton = new Button(() => SetupBones())
+            {
+                text = "Add New Bones to VRCBreeze",
+                tooltip = "Adds new bones into your VRCBreeze Prefab settings, such as: Breeze Bones and Breeze Bone Weight! Ignores existing bones that are already in your prefab."
+            };
+            rootVisualElement.Add(setupButton);
         }
 
         private void SetupBones()
         {
             if (VRCBreezePrefab == null)
             {
-                Debug.LogError("[VRCBreeze Quick Setup] Missing VRCBreeze Prefab! Please assign it from your Avatar!");
+                Debug.LogError("[VRCBreeze Quick Setup] Missing VRCBreeze Prefab! To fix that, drag VRCBreeze.prefab into your Avatar and then drag the prefab into this slot.");
                 return;
             }
-            if (breezeBones.Count <= 0)
+
+            newBreezeBones = newBreezeBones.Where(b => b != null).ToList();
+            if (newBreezeBones.Count == 0)
             {
                 Debug.LogError("[VRCBreeze Quick Setup] Missing Breeze Bones! Please assign them from your Avatar!");
                 return;
             }
 
-            for (int i = breezeBones.Count - 1; i >= 0; i--)
+            if (VRCBreezePrefab.boneObjects == null)
             {
-                if (breezeBones[i] == null)
+                VRCBreezePrefab.boneObjects = new BoneObjects[0];
+            }
+
+            HashSet<GameObject> existingBones = new HashSet<GameObject>(
+                VRCBreezePrefab.boneObjects
+                    .Where(x => x != null && x.breezeBone != null)
+                    .Select(x => x.breezeBone)
+            );
+
+            List<BoneObjects> merged = new List<BoneObjects>();
+
+            foreach (var bo in VRCBreezePrefab.boneObjects)
+            {
+                if (bo != null && bo.breezeBone != null && existingBones.Contains(bo.breezeBone))
                 {
-                    breezeBones.RemoveAt(i);
+                    merged.Add(bo);
                 }
             }
 
-            GameObject[] bones = breezeBones.ToArray();
-            VRCBreezePrefab.boneObjects = new BoneObjects[bones.Length];
-
-            for (int i = 0; i < bones.Length; i++)
+            foreach (var bone in newBreezeBones)
             {
-                VRCBreezePrefab.boneObjects[i] = new BoneObjects
+                if (existingBones.Add(bone))
                 {
-                    breezeBone = bones[i],
-                    breezeBoneWeight = breezeBoneWeight
-                };
+                    merged.Add(new BoneObjects
+                    {
+                        breezeBone = bone,
+                        breezeBoneWeight = newBreezeBoneWeights
+                    });
+                }
             }
+
+            VRCBreezePrefab.boneObjects = merged.ToArray();
         }
 
         private void RetrieveBones()
         {
             if (VRCBreezePrefab == null)
             {
-                Debug.LogError("[VRCBreeze Quick Setup] Missing VRCBreeze Prefab! Please assign it from your Avatar!");
+                Debug.LogError("[VRCBreeze Quick Setup] Missing VRCBreeze Prefab! Drag the VRCBreeze prefab from your Avatar. You will not be able to use this option, if you are setting this up for the first time!");
                 return;
             }
             if (VRCBreezePrefab.boneObjects.Length <= 0)
@@ -111,13 +136,29 @@ namespace VRCBreeze {
                 return;
             }
 
-            breezeBones.Clear();
+            newBreezeBones.Clear();
 
             for (int i = 0; i < VRCBreezePrefab.boneObjects.Length; i++)
             {
                 if (VRCBreezePrefab.boneObjects[i].breezeBone == null) continue;
-                breezeBones.Add(VRCBreezePrefab.boneObjects[i].breezeBone);
+                newBreezeBones.Add(VRCBreezePrefab.boneObjects[i].breezeBone);
             }
+        }
+
+        private void ClearBonesFromPrefab()
+        {
+            if (VRCBreezePrefab == null)
+            {
+                Debug.LogError("[VRCBreeze Quick Setup] Missing VRCBreeze Prefab! Drag the VRCBreeze prefab from your Avatar. You will not be able to use this option, if you are setting this up for the first time!");
+                return;
+            }
+            if (VRCBreezePrefab.boneObjects.Length <= 0)
+            {
+                Debug.Log("[VRCBreeze Quick Setup] You already have no Breeze Bones in the list!");
+                return;
+            }
+
+            VRCBreezePrefab.boneObjects = new BoneObjects[0];
         }
 
         private class SpaceElement : VisualElement

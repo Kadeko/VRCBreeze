@@ -81,7 +81,7 @@ namespace VRCBreeze
         private void OnDrawGizmosSelected()
         {
             if (!enableGizmos) return;
-            if (boneObjects.Length == 0) return;
+            if (boneObjects == null || boneObjects.Length == 0) return;
 
             float height = 0.05f;
             int circleSegments = 8;
