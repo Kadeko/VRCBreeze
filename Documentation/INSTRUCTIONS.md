@@ -1,8 +1,8 @@
-[VRCBreeze](../README.md) | **Instructions** | [General Tips](../Documentation/GENERALTIPS.md) | [Guidelines](../Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
+[VRCBreeze](../README.md) | **Avatar Instructions** | [World Instructions](../Documentation/INSTRUCTIONS_WORLD.md) | [General Tips](../Documentation/GENERALTIPS.md) | [Guidelines](../Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
 
 <img src="../Documentation/Screenshot_3.png" width="512" height="771">
 
-# Instructions for Avatar:
+# Instructions for Avatar
 
 **Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)
 
@@ -13,14 +13,14 @@
 1) Drag `VRCBreeze.prefab` inside your Avatar.
 
 > [!IMPORTANT]
-> - **Do not unpack it.**
+> - **Do not unpack it. Unpacking prefab will cause problems in future updates. Only do this, if you know what you are doing!**
 
-3) Assign `Wind Anchor`. That can be your Hips, Spine, Head or anything in your Avatar's Armature!
+3) Assign `Wind Anchor`. That can be your Hips, Spine, Head or anything in your Avatar's Armature! Wind Anchor will be used in rotating Wind Direction.
 
 4) Assign any bone you would like to move around by wind in `Bone Objects`.
 
 > [!IMPORTANT]
-> - Do not assign every child bone that is under the root!!
+> - Do not assign every child bone that is under the root bone! You can still use any child bone in the root, as long as you are only using one.
 
 > [!TIP]
 > - With 1.3.2+ version, you can use "Quick Setup" tool that allows you to drag multiple bones at once!
@@ -41,7 +41,7 @@
 
 # **Troubleshooting:**
 
-**Problem 1:** My hair doesn't move!
+**Problem 1:** My bones do not move when the Wind is enabled!
 
 **Solution:**
 You may have to increase `Wind Strength` in Unity. Make sure all `Bone Weights` are `above 0`.\
