@@ -1,4 +1,4 @@
-[VRCBreeze](../README.md) | **Avatar Instructions** | [World Instructions](../Documentation/INSTRUCTIONS_WORLD.md) | [General Tips](../Documentation/GENERALTIPS.md) | [Guidelines](../Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
+[VRCBreeze](https://github.com/Kadeko/VRCBreeze) | **Avatar Instructions** | [World Instructions](../Documentation/INSTRUCTIONS_WORLD.md) | [General Tips](../Documentation/GENERALTIPS.md) | [Guidelines](../Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
 
 <img src="../Documentation/Screenshot_3.png" width="512" height="771">
 
