@@ -1,6 +1,6 @@
 [VRCBreeze](https://github.com/Kadeko/VRCBreeze) | [Avatar Instructions](../Documentation/INSTRUCTIONS.md) | [World Instructions](../Documentation/INSTRUCTIONS_WORLD.md) | **General Tips** | [Guidelines](../Documentation/GUIDELINES.md) | [Download it here](https://github.com/Kadeko/VRCBreeze/releases/)
 
-<p align="center"><img src="../Documentation/VRCB_Header.png" width="512" height="128"></p>
+<p align="center"><img src="../Documentation/Resources/VRCB_Header.png" width="512" height="128"></p>
 
 # General Tips:
 
