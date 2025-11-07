@@ -3,7 +3,7 @@
 <p align="center"><img src="Documentation/Resources/VRCB_Header.png" width="512" height="128"></p>
 <p align="center">https://github.com/user-attachments/assets/471d30b5-6dd6-4d1b-8b4d-d84232aaf7a5</p>
 
-VRCBreeze is Non-Destructive prefab that allows you to create any bone move in the wind. It can be your hair, clothes, anything!
+VRCBreeze is Non-Destructive prefab that allows you to create any bone move in the wind. It can be your hair, clothes, anything! This uses zero colliders and works well with good performant avatars!
 
 ## **Features:**
 - Wind strength, Direction, Local & World space options, and Strength/Direction Randomization!
@@ -17,7 +17,7 @@ VRCBreeze is Non-Destructive prefab that allows you to create any bone move in t
 - This prefab generates 4 animations for the wind direction:\
    Forward `(+Z)`, Backward `(-Z)`, Left `(+X)` & Right `(-X)`
    - Directions can be inverted on every individual bone.
-   - Animations are bending the root bones to create wind effect. Perfect with Physbones!
+   - Animations are rotating the assigned bones to create a wind effect. Perfect with Physbones!
 
 - These 4 generated animations are automatically assigned into a blend tree in `FX_Breeze.controller`.
 
