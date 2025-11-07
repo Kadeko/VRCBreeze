@@ -31,13 +31,13 @@
 > [!IMPORTANT]
 > - Do not leave `Bone Weights` to `0`! Otherwise this bone will be ignored during animation generation.
 
+> [!TIP]
+> - Bones that are going upwards (For example: Animal Ears) should use Inverted `X` and `Z` axis option!
+
 6) Adjust `Wind Strength`. I recommend enabling `Gizmos` to see how much it will bend. `Weight` multiplies the `Wind Strength`\
 `Wind Strength * Weight`.
 
 7) Publish your avatar! Enjoy the breeze!
-
-> [!TIP]
-> - Bones that are going upwards (For example: Animal Ears) should use Inverted `X` and `Z` axis option!
 
 # **Troubleshooting:**
 
