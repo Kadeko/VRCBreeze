@@ -121,6 +121,8 @@ namespace VRCBreeze {
             }
 
             VRCBreezePrefab.boneObjects = merged.ToArray();
+
+            EditorUtility.SetDirty(VRCBreezePrefab);
         }
 
         private void RetrieveBones()
@@ -159,6 +161,8 @@ namespace VRCBreeze {
             }
 
             VRCBreezePrefab.boneObjects = new BoneObjects[0];
+
+            EditorUtility.SetDirty(VRCBreezePrefab);
         }
 
         private class SpaceElement : VisualElement
