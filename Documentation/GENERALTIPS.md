@@ -4,9 +4,9 @@
 
 # General Tips:
 
-- I recommend enabling "Move Bones At Random Time" so all your bones move at different speed!
+- I recommend enabling "Move Bones At Random Time" so all your bones are shuffled inside animations and move at different speed!
 
-- Bone moving in wrong direction? Try inverting X or Z axis!
+- Bones are moving in wrong direction? Try using invert X or Z axis options!
 
 - Having too many bones? You can try using "Quick Setup" tool that can be found at: "Tools/VRCBreeze/Quick Setup"!
 

@@ -39,7 +39,11 @@ Modular Avatar is used in merging Expression Menu & Expression Parameters.
 > [!TIP]
 > - Bones that are going upwards (For example: Animal Ears) should use Inverted `X` and `Z` axis option!
 
-6) Publish your avatar! Enjoy the breeze!
+6) Inside `Wind Pattern`, you can adjust the way how the wind works in your Avatar! The first key's and last key's value must be the same to complete the seamless Animation loop. Our script will automatically fix that.
+
+<img src="../Documentation/Resources/Tutorial_6.png">
+
+7) Publish your avatar! Enjoy the breeze!
 
 # **Troubleshooting:**
 
@@ -47,8 +51,8 @@ Modular Avatar is used in merging Expression Menu & Expression Parameters.
 
 **Solution:**
 You may have to increase `Wind Strength` in Unity. Make sure all `Bone Weights` are `above 0`.\
-Some Avatar Tools may conflict with this! Try troubleshooting it by disabling some of the features.
+Some Avatar Tools may conflict with this! Try troubleshooting it by disabling or removing some of the tools.
 
 **Problem 2:** Script has errors!
 
-**Solution:** Check console for details. Make sure your SDK version is up to date and have Modular Avatar installed.
+**Solution:** Check console for details. Make sure your SDK version is up to date and have Modular Avatar installed. You may have other broken assets that do not let this asset compile.

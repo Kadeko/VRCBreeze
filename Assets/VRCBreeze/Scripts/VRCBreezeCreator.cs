@@ -13,7 +13,7 @@ namespace VRCBreeze
     {
         [Tooltip("Bone, that will be controlled by wind.")]
         public GameObject breezeBone;
-        [Tooltip("How much is this bone influenced by wind. The weight multiplies by Wind Strength.\nWind Strength * Weight."), Range(0f, 2f)]
+        [Tooltip("How much is this bone influenced by wind. The weight multiplies by Wind Strength and Wind Pattern Value.\nWind Strength * Wind Pattern Value * Weight."), Range(0f, 2f)]
         public float breezeBoneWeight = 1f;
         [Tooltip("Inverts rotation in X axis. (left / right)")]
         public bool invertX = false;
@@ -32,13 +32,16 @@ namespace VRCBreeze
         [Tooltip("How strong is the wind."), Min(0f)]
         public float windStrength = 10f;
 
-        [Tooltip("How long does the wind blow. Higher Number = Slower Movement. By default, it's 1."), Min(0.5f)]
-        public float windLength = 1f;
+        [Tooltip("The key value (Y) must be between 0 and 1. The key time (X) can be longer. The script will remove the last key and replace it with the first key to complete the Animation loop.")]
+        public AnimationCurve windPattern;
 
-        [Tooltip("If enabled, Bone keyframes are slightly randomized around the middle of the AnimationClip.\nIf disabled, Bone keyframes are placed in the middle of the AnimationClip.")]
+        [Tooltip("If enabled, Animation keyframes are slightly shuffled.")]
         public bool moveBonesAtRandomTime = false;
 
-        [Space, Tooltip("Drag any root bones here!")]
+        [Tooltip("If 'Move Bones At Random Time' is enabled, Animation keyframes are slightly shuffled by this value."), Min(0f)]
+        public float randomRange = 0.1f;
+
+        [Space, Tooltip("Drag any bones here to make it move in the wind!\nDo not add any child bones inside! Physbones will move the rest of the bones itself.")]
         public BoneObjects[] boneObjects;
 
         [Header("Important Components:"), Tooltip("Do not remove this, unless you know what you are doing!\nYou can find this component at: 'Rotation_Source' GameObject.")]
@@ -96,8 +99,6 @@ namespace VRCBreeze
 
                 Vector3 origin = boneObjects[i].breezeBone.transform.position;
                 Vector3 direction = boneObjects[i].breezeBone.transform.up * height;
-
-                Gizmos.DrawLine(origin, origin + direction);
 
                 Vector3 baseCenter = origin + direction;
                 Quaternion rotation = Quaternion.LookRotation(boneObjects[i].breezeBone.transform.up);

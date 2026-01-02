@@ -1,15 +1,14 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEditor;
-using UnityEditor.Animations;
-using VRC.SDK3.Avatars.Components;
-using VRC.SDK3.Dynamics.PhysBone.Components;
 using nadena.dev.ndmf;
 using nadena.dev.ndmf.animator;
-
-using UnityRandom = UnityEngine.Random;
+using System;
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Animations;
+using UnityEngine;
+using VRC.SDK3.Avatars.Components;
+using VRC.SDK3.Dynamics.PhysBone.Components;
 using static UnityEngine.Object;
+using UnityRandom = UnityEngine.Random;
 
 namespace VRCBreeze
 {
@@ -47,6 +46,12 @@ namespace VRCBreeze
             {
                 // Setup Physbones
                 SetupPhysbones(creator);
+
+                if (creator.windPattern == null || creator.windPattern.length == 0)
+                {
+                    Debug.LogError("[VRCBreeze Quick Setup] Missing Wind Pattern! Please create a curve in order to use this.");
+                    return;
+                }
 
                 // Create animations
                 CreateBreezeAnimation(creator, Direction.Forward);
@@ -102,12 +107,15 @@ namespace VRCBreeze
             {
                 if (boneObject.breezeBone == null || boneObject.breezeBoneWeight == 0f) continue;
 
+                var curveX = new AnimationCurve();
+                var curveY = new AnimationCurve();
+                var curveZ = new AnimationCurve();
+                var curveW = new AnimationCurve();
+
                 var boneTransform = boneObject.breezeBone.transform;
                 var path = asc.ObjectPathRemapper.GetVirtualPathForObject(boneTransform);
 
-                var axis = Vector3.up;
-                var angle = Mathf.Abs(creator.windStrength * boneObject.breezeBoneWeight);
-
+                var axis = Vector3.zero;
                 switch (direction)
                 {
                     case Direction.Forward:
@@ -125,35 +133,59 @@ namespace VRCBreeze
                 }
 
                 var worldStartRot = boneTransform.rotation;
-                var rotationAxis = Vector3.Cross(Vector3.up, axis).normalized;
-                if (Mathf.Approximately(rotationAxis.sqrMagnitude, 0f))
-                    rotationAxis = Vector3.forward;
-
-                var worldMiddleRot = Quaternion.AngleAxis(angle, rotationAxis) * worldStartRot;
-
                 var localStartRot = worldStartRot;
-                var localMiddleRot = worldMiddleRot;
-                var parent = boneTransform.parent;
-                if (parent != null)
+
+                var keys = creator.windPattern.keys;
+                for (int key = 0; key < keys.Length; key++)
                 {
-                    var invertParentRotation = Quaternion.Inverse(parent.rotation);
-                    localStartRot = invertParentRotation * localStartRot;
-                    localMiddleRot = invertParentRotation * localMiddleRot;
+                    var curveStrength = 0f;
+                    if (key < keys.Length - 1)
+                    {
+                        curveStrength = Mathf.Clamp(keys[key].value, 0f, 1f);
+                    }
+                    else
+                    {
+                        curveStrength = Mathf.Clamp(keys[0].value, 0f, 1f);
+                    }
+
+                    var angle = Mathf.Abs(creator.windStrength * boneObject.breezeBoneWeight * curveStrength);
+
+                    var rotationAxis = Vector3.Cross(Vector3.up, axis).normalized;
+                    if (Mathf.Approximately(rotationAxis.sqrMagnitude, 0f))
+                    {
+                        rotationAxis = Vector3.forward;
+                    }
+
+                    var worldMiddleRot = Quaternion.AngleAxis(angle, rotationAxis) * worldStartRot;
+                    var localMiddleRot = worldMiddleRot;
+                    var parent = boneTransform.parent;
+                    if (parent != null)
+                    {
+                        var invertParentRotation = Quaternion.Inverse(parent.rotation);
+                        localStartRot = invertParentRotation * localStartRot;
+                        localMiddleRot = invertParentRotation * localMiddleRot;
+                    }
+
+                    var time = creator.moveBonesAtRandomTime ? Mathf.Clamp(keys[key].time + UnityRandom.Range(-(creator.randomRange), creator.randomRange), 0f, keys[keys.Length - 1].time) : keys[key].time;
+
+                    curveX.AddKey(time, localMiddleRot.x);
+                    curveY.AddKey(time, localMiddleRot.y);
+                    curveZ.AddKey(time, localMiddleRot.z);
+                    curveW.AddKey(time, localMiddleRot.w);
                 }
-
-                var endKeyframeTime = creator.windLength;
-                var halfKeyframeTime = endKeyframeTime / 2f;
-                var middleKeyframeTime = creator.moveBonesAtRandomTime ? halfKeyframeTime + UnityRandom.Range(-0.15f, 0.15f) : halfKeyframeTime; // var middleKeyframeTime = creator.moveBonesAtRandomTime ? UnityRandom.Range(0.35f, 0.65f) : 0.5f;
-
-                var curveX = new AnimationCurve(new Keyframe(0f, localStartRot.x), new Keyframe(middleKeyframeTime, localMiddleRot.x), new Keyframe(endKeyframeTime, localStartRot.x));
-                var curveY = new AnimationCurve(new Keyframe(0f, localStartRot.y), new Keyframe(middleKeyframeTime, localMiddleRot.y), new Keyframe(endKeyframeTime, localStartRot.y));
-                var curveZ = new AnimationCurve(new Keyframe(0f, localStartRot.z), new Keyframe(middleKeyframeTime, localMiddleRot.z), new Keyframe(endKeyframeTime, localStartRot.z));
-                var curveW = new AnimationCurve(new Keyframe(0f, localStartRot.w), new Keyframe(middleKeyframeTime, localMiddleRot.w), new Keyframe(endKeyframeTime, localStartRot.w));
-
                 clip.SetFloatCurve(path, typeof(Transform), "localRotation.x", curveX);
                 clip.SetFloatCurve(path, typeof(Transform), "localRotation.y", curveY);
                 clip.SetFloatCurve(path, typeof(Transform), "localRotation.z", curveZ);
                 clip.SetFloatCurve(path, typeof(Transform), "localRotation.w", curveW);
+
+                AnimationUtility.SetKeyLeftTangentMode(curveX, 0, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyRightTangentMode(curveX, curveX.length - 1, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyLeftTangentMode(curveY, 0, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyRightTangentMode(curveY, curveY.length - 1, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyLeftTangentMode(curveZ, 0, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyRightTangentMode(curveZ, curveZ.length - 1, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyLeftTangentMode(curveW, 0, AnimationUtility.TangentMode.Linear);
+                AnimationUtility.SetKeyRightTangentMode(curveW, curveW.length - 1, AnimationUtility.TangentMode.Linear);
             }
 
             clip.Settings = new AnimationClipSettings
