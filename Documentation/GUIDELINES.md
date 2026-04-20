@@ -4,9 +4,10 @@
 
 # Guidelines
 
-1) You can use this prefab in Avatars & Worlds, including publicly released!
+1) You can use this prefab in private, public or commercial Avatars & Worlds!
 
-2) Avatar, World, Clothing & Hair distribution using this prefab is allowed with condition to credit Kadeko, InviaWaffles & Vistanz. Linking to this github is optional.
-- However, distributing this prefab only and taking credit is prohibited!
+2) Avatar, World, Clothing & Hair distribution using this prefab is allowed with condition to credit creators: Kadeko, InviaWaffles & Vistanz.
 
-3) You are allowed to modify this prefab for your own prefabs & tools!
+3) Selling this prefab and taking credit are prohibited!
+
+4) You are allowed to modify this prefab for your own prefabs & tools!
