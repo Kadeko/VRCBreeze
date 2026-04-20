@@ -3,16 +3,20 @@
 # Avatar Instructions
 
 **Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)\
-Modular Avatar is used in merging Expression Menu & Expression Parameters.
+Modular Avatar is used in merging Animator, Expression Menu & Expression Parameters.
 
 ## **Steps:**
 1) Drag `VRCBreeze.prefab` into your Avatar.
+> [!TIP]
+> - You can Right Click on your Avatar and select VRCBreeze.
+
 <img src="../Documentation/Resources/Tutorial_1.png">
 
 > [!IMPORTANT]
 > - **Do not unpack it. Unpacking prefab will cause problems in future updates. Only do this, if you know what you are doing!**
 
 3) Assign `Wind Anchor`. That can be your Hips, Spine, Head or anything in your Avatar's Armature! Wind Anchor will be used in rotating Wind Direction.
+
 <img src="../Documentation/Resources/Tutorial_2.png">
 
 4) Assign any bone you would like to move around by wind in `Bone Objects`.

@@ -58,8 +58,68 @@ MonoBehaviour:
   allowSelf: 1
   allowOthers: 0
   receiverType: 2
-  parameter: VRCBreeze/Axis/0/-Z
+  parameter: VRCBreeze/Axis/-Z
   minVelocity: 0.05
+--- !u!1 &936077959464724327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4863802493946326052}
+  - component: {fileID: 2712965136063669286}
+  m_Layer: 0
+  m_Name: Raycast_IndoorDetection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4863802493946326052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936077959464724327}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1852462469253589705}
+  m_Father: {fileID: 4609851767951380918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2712965136063669286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936077959464724327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1472509199, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastDirection: {x: 0, y: 1, z: 0}
+  distance: 5
+  applyTransformScale: 0
+  collisionMode: 0
+  customCollisionLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  resultTransform: {fileID: 1852462469253589705}
+  applyRotation: 0
+  alignmentAxis: {x: 0, y: 1, z: 0}
+  behaviorOnMiss: 1
+  parameter: VRCBreeze/Indoors
+  param_HitValue: 0
+  param_RatioValue: 0
+  param_DistanceValue: 0
 --- !u!1 &1590596212920088859
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +178,7 @@ MonoBehaviour:
   allowSelf: 1
   allowOthers: 0
   receiverType: 2
-  parameter: VRCBreeze/Axis/0/+Z
+  parameter: VRCBreeze/Axis/+Z
   minVelocity: 0.05
 --- !u!1 &2354854230102200176
 GameObject:
@@ -178,9 +238,9 @@ MonoBehaviour:
   allowSelf: 1
   allowOthers: 0
   receiverType: 2
-  parameter: VRCBreeze/Axis/0/-X
+  parameter: VRCBreeze/Axis/-X
   minVelocity: 0.05
---- !u!1 &2593257207537733658
+--- !u!1 &2485783716423517144
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,152 +248,41 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7204947098647088414}
-  - component: {fileID: 3687580846060220290}
+  - component: {fileID: 7280680654751215024}
+  - component: {fileID: 5557124909824214225}
+  - component: {fileID: 3085399569566129864}
   m_Layer: 0
-  m_Name: CS_WindDirection
+  m_Name: WorldConstraint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7204947098647088414
+--- !u!4 &7280680654751215024
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2593257207537733658}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1497361381997423914}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3687580846060220290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2593257207537733658}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -802764141, guid: 80f1b8067b0760e4bb45023bc2e9de66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rootTransform: {fileID: 0}
-  shapeType: 0
-  radius: 0.1
-  height: 2
-  position: {x: 0, y: 0, z: 0}
-  rotation: {x: 0, y: 0, z: 0, w: 1}
-  localOnly: 0
-  contentTypes: 1
-  collisionTags:
-  - Avatar_WindDirection
---- !u!1 &4142863996460731324
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4609851767951380918}
-  - component: {fileID: 8036493328730307629}
-  - component: {fileID: 1753647328784374317}
-  - component: {fileID: 1474093551729423925}
-  - component: {fileID: 1880038099476336501}
-  - component: {fileID: 8394457485246796443}
-  m_Layer: 0
-  m_Name: VRCBreeze
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4609851767951380918
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142863996460731324}
+  m_GameObject: {fileID: 2485783716423517144}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7538283818640891763}
   - {fileID: 8374276266386775774}
   - {fileID: 2792997333597717941}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4609851767951380918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8036493328730307629
+--- !u!114 &5557124909824214225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142863996460731324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27ea025a92de8334794c07a192ca534e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  windAnchor: {fileID: 0}
-  windStrength: 10
-  windPattern:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.5
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -2
-      outSlope: -2
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  moveBonesAtRandomTime: 1
-  boneObjects: []
-  rotationConstraint: {fileID: 215003812590759311}
-  sourceAnimatorController: {fileID: 9100000, guid: 4aa810356bb7e8748a2971510a5100b2,
-    type: 2}
-  enableAutomaticWriteDefaults: 1
-  enableGizmos: 1
---- !u!114 &1753647328784374317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142863996460731324}
+  m_GameObject: {fileID: 2485783716423517144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 575728033, guid: 58e2f01a24261a14cb82e6d3399e8b16, type: 3}
@@ -352,7 +301,7 @@ MonoBehaviour:
         type: 3}
       Weight: 1
       ParentPositionOffset: {x: 0, y: 0, z: 0}
-      ParentRotationOffset: {x: -0, y: -0, z: 0}
+      ParentRotationOffset: {x: -0, y: 0, z: 0}
     source1:
       SourceTransform: {fileID: 0}
       Weight: 0
@@ -436,17 +385,17 @@ MonoBehaviour:
   AffectsPositionX: 1
   AffectsPositionY: 1
   AffectsPositionZ: 1
-  RotationAtRest: {x: -0, y: -0, z: 0}
+  RotationAtRest: {x: -0, y: 0, z: 0}
   AffectsRotationX: 1
   AffectsRotationY: 1
   AffectsRotationZ: 1
---- !u!114 &1474093551729423925
+--- !u!114 &3085399569566129864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142863996460731324}
+  m_GameObject: {fileID: 2485783716423517144}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 41250163, guid: 58e2f01a24261a14cb82e6d3399e8b16, type: 3}
@@ -545,11 +494,179 @@ MonoBehaviour:
     overflowList: []
   cachedExecutionGroupIndex: 0
   latestValidExecutionGroupIndex: 0
-  ScaleAtRest: {x: 0.05, y: 0.05, z: 0.05}
+  ScaleAtRest: {x: 1, y: 1, z: 1}
   ScaleOffset: {x: 0.05, y: 0.05, z: 0.05}
   AffectsScaleX: 1
   AffectsScaleY: 1
   AffectsScaleZ: 1
+--- !u!1 &2593257207537733658
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7204947098647088414}
+  - component: {fileID: 3687580846060220290}
+  m_Layer: 0
+  m_Name: CS_WindDirection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7204947098647088414
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593257207537733658}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1497361381997423914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3687580846060220290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593257207537733658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -802764141, guid: 80f1b8067b0760e4bb45023bc2e9de66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootTransform: {fileID: 0}
+  shapeType: 0
+  radius: 0.1
+  height: 2
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 1}
+  localOnly: 0
+  contentTypes: 1
+  collisionTags:
+  - Avatar_WindDirection
+--- !u!1 &4142863996460731324
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4609851767951380918}
+  - component: {fileID: 8036493328730307629}
+  - component: {fileID: 1991263147611423890}
+  - component: {fileID: 1880038099476336501}
+  - component: {fileID: 8394457485246796443}
+  m_Layer: 0
+  m_Name: VRCBreeze
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4609851767951380918
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142863996460731324}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7280680654751215024}
+  - {fileID: 4863802493946326052}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8036493328730307629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142863996460731324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27ea025a92de8334794c07a192ca534e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windAnchor: {fileID: 0}
+  windStrength: 10
+  windPattern:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -2
+      outSlope: -2
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  moveBonesAtRandomTime: 1
+  randomRange: 0.1
+  bones: []
+  rotationConstraint: {fileID: 215003812590759311}
+  sourceAnimatorController: {fileID: 9100000, guid: 4aa810356bb7e8748a2971510a5100b2,
+    type: 2}
+  enableGizmos: 1
+  language: 0
+--- !u!114 &1991263147611423890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4142863996460731324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb122659f724ebf85fe095ac02dc339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 9100000, guid: 4aa810356bb7e8748a2971510a5100b2, type: 2}
+  layerType: 5
+  deleteAttachedAnimator: 1
+  pathMode: 1
+  matchAvatarWriteDefaults: 1
+  relativePathRoot:
+    referencePath: 
+    targetObject: {fileID: 0}
+  layerPriority: 0
+  mergeAnimatorMode: 0
 --- !u!114 &1880038099476336501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parameters:
-  - nameOrPrefix: VRCBreeze/Strength
+  - nameOrPrefix: VRCBreeze/Speed/Value
     remapTo: 
     internalParameter: 0
     isPrefix: 0
@@ -573,7 +690,7 @@ MonoBehaviour:
     saved: 1
     hasExplicitDefaultValue: 0
     m_overrideAnimatorDefaults: 0
-  - nameOrPrefix: VRCBreeze/RandomStrength
+  - nameOrPrefix: VRCBreeze/Speed/Randomized
     remapTo: 
     internalParameter: 0
     isPrefix: 0
@@ -583,7 +700,7 @@ MonoBehaviour:
     saved: 1
     hasExplicitDefaultValue: 0
     m_overrideAnimatorDefaults: 0
-  - nameOrPrefix: VRCBreeze/Direction
+  - nameOrPrefix: VRCBreeze/Direction/Value
     remapTo: 
     internalParameter: 0
     isPrefix: 0
@@ -593,7 +710,7 @@ MonoBehaviour:
     saved: 1
     hasExplicitDefaultValue: 0
     m_overrideAnimatorDefaults: 0
-  - nameOrPrefix: VRCBreeze/RandomDirection
+  - nameOrPrefix: VRCBreeze/Direction/Randomized
     remapTo: 
     internalParameter: 0
     isPrefix: 0
@@ -603,7 +720,7 @@ MonoBehaviour:
     saved: 1
     hasExplicitDefaultValue: 0
     m_overrideAnimatorDefaults: 0
-  - nameOrPrefix: VRCBreeze/RandomSpeed
+  - nameOrPrefix: VRCBreeze/RandomUpdateRate
     remapTo: 
     internalParameter: 0
     isPrefix: 0
@@ -613,7 +730,7 @@ MonoBehaviour:
     saved: 1
     hasExplicitDefaultValue: 0
     m_overrideAnimatorDefaults: 0
-  - nameOrPrefix: VRCBreeze/LocalSpace
+  - nameOrPrefix: VRCBreeze/LocalRotation
     remapTo: 
     internalParameter: 0
     isPrefix: 0
@@ -624,6 +741,46 @@ MonoBehaviour:
     hasExplicitDefaultValue: 0
     m_overrideAnimatorDefaults: 0
   - nameOrPrefix: VRCBreeze/WorldActive
+    remapTo: 
+    internalParameter: 0
+    isPrefix: 0
+    syncType: 3
+    localOnly: 1
+    defaultValue: 0
+    saved: 0
+    hasExplicitDefaultValue: 0
+    m_overrideAnimatorDefaults: 0
+  - nameOrPrefix: VRCBreeze/Indoors/Toggle
+    remapTo: 
+    internalParameter: 0
+    isPrefix: 0
+    syncType: 3
+    localOnly: 0
+    defaultValue: 0
+    saved: 1
+    hasExplicitDefaultValue: 0
+    m_overrideAnimatorDefaults: 0
+  - nameOrPrefix: VRCBreeze/Indoors_Hit
+    remapTo: 
+    internalParameter: 0
+    isPrefix: 0
+    syncType: 3
+    localOnly: 1
+    defaultValue: 0
+    saved: 0
+    hasExplicitDefaultValue: 0
+    m_overrideAnimatorDefaults: 0
+  - nameOrPrefix: VRCBreeze/Disable/RandomSpeed
+    remapTo: 
+    internalParameter: 0
+    isPrefix: 0
+    syncType: 3
+    localOnly: 1
+    defaultValue: 0
+    saved: 0
+    hasExplicitDefaultValue: 0
+    m_overrideAnimatorDefaults: 0
+  - nameOrPrefix: VRCBreeze/Disable/RandomDirection
     remapTo: 
     internalParameter: 0
     isPrefix: 0
@@ -678,7 +835,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1497361381997423914}
-  m_Father: {fileID: 4609851767951380918}
+  m_Father: {fileID: 7280680654751215024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4755653051417054400
 MonoBehaviour:
@@ -848,7 +1005,7 @@ MonoBehaviour:
   allowSelf: 1
   allowOthers: 0
   receiverType: 2
-  parameter: VRCBreeze/Axis/0/+X
+  parameter: VRCBreeze/Axis/+X
   minVelocity: 0.05
 --- !u!1 &6764087531132265569
 GameObject:
@@ -880,7 +1037,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4609851767951380918}
+  m_Father: {fileID: 7280680654751215024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5525736917260436267
 MonoBehaviour:
@@ -943,7 +1100,7 @@ Transform:
   - {fileID: 3469034073827824558}
   - {fileID: 7564615720724611166}
   - {fileID: 3281723158654262157}
-  m_Father: {fileID: 4609851767951380918}
+  m_Father: {fileID: 7280680654751215024}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &215003812590759311
 MonoBehaviour:
@@ -1054,6 +1211,37 @@ MonoBehaviour:
   AffectsRotationX: 0
   AffectsRotationY: 1
   AffectsRotationZ: 0
+--- !u!1 &7587913527342324583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1852462469253589705}
+  m_Layer: 0
+  m_Name: Raycast_OnHitResult
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1852462469253589705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7587913527342324583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4863802493946326052}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8557388713595304926
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/Strength
+  m_BlendParameter: VRCBreeze/Speed/Value
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -45,36 +45,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 0
-    name: VRCBreeze/SmoothAmount
+    name: VRCBreeze/Smoothing/Value
     source: 
     value: 0
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
     destMin: 0
     destMax: 0
   - type: 0
-    name: VRCBreeze/Direction
+    name: VRCBreeze/Direction/Value
     source: 
     value: 0
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
     destMin: 0
     destMax: 0
   - type: 0
-    name: VRCBreeze/SmoothedDirection
+    name: VRCBreeze/Direction/Smoothed
     source: 
     value: 0
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
@@ -96,7 +99,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: VRCBreeze/Axis/0/+X
+    m_DirectBlendParameter: VRCBreeze/Axis/+X
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -104,7 +107,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: VRCBreeze/Axis/0/-X
+    m_DirectBlendParameter: VRCBreeze/Axis/-X
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -112,7 +115,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: VRCBreeze/Axis/0/+Z
+    m_DirectBlendParameter: VRCBreeze/Axis/+Z
     m_Mirror: 0
   - serializedVersion: 2
     m_Motion: {fileID: 0}
@@ -120,7 +123,7 @@ BlendTree:
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
     m_CycleOffset: 0
-    m_DirectBlendParameter: VRCBreeze/Axis/0/-Z
+    m_DirectBlendParameter: VRCBreeze/Axis/-Z
     m_Mirror: 0
   m_BlendParameter: VRCBreeze/LocalSpace
   m_BlendParameterY: Blend
@@ -155,6 +158,62 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!114 &-7715685518334692532
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -706344726, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+  - type: 0
+    name: VRCBreeze/Speed/Randomized
+    source: 
+    value: 0
+    valueMin: 0
+    valueMax: 0
+    chance: 0
+    preventRepeats: 0
+    convertRange: 0
+    sourceMin: 0
+    sourceMax: 0
+    destMin: 0
+    destMax: 0
+  localOnly: 1
+  debugString: 
+--- !u!1102 &-7641316691806371199
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disable Random Speed
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: 61084429265602641}
+  m_StateMachineBehaviours:
+  - {fileID: -7715685518334692532}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: b0d1cd12b3459a5438f48e4919fc9118, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-7572012909962940322
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -164,7 +223,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: VRCBreeze/Direction
+    m_ConditionEvent: VRCBreeze/Direction/Value
     m_EventTreshold: 0.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -220,6 +279,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3816315046409607005}
+  - {fileID: -3223848941097974670}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -231,7 +291,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 3876658768864533120}
   m_Tag: 
-  m_SpeedParameter: VRCBreeze/SmoothedStrength
+  m_SpeedParameter: VRCBreeze/Speed/Smoothed
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -246,8 +306,10 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
-  - {fileID: -2180596343642795607}
   - {fileID: -4952507572802551954}
+  - {fileID: 4458567046684197555}
+  - {fileID: -4062751613926137134}
+  - {fileID: -2180596343642795607}
   - {fileID: 771505761865719828}
   - {fileID: 1466937123359840784}
   m_StateMachineBehaviours: []
@@ -261,7 +323,7 @@ AnimatorState:
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: b0d1cd12b3459a5438f48e4919fc9118, type: 2}
   m_Tag: 
-  m_SpeedParameter: VRCBreeze/RandomSpeed
+  m_SpeedParameter: VRCBreeze/RandomUpdateRate
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
@@ -274,7 +336,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 3
-    m_ConditionEvent: VRCBreeze/Direction
+    m_ConditionEvent: VRCBreeze/Direction/Value
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -302,7 +364,7 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: VRCBreeze/Direction
+    m_ConditionEvent: VRCBreeze/Direction/Value
     m_EventTreshold: 0.99
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1170382529941398189}
@@ -314,6 +376,28 @@ AnimatorStateTransition:
   m_TransitionOffset: 0
   m_ExitTime: 0.75
   m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-5313488392434900570
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.1
+  m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -334,7 +418,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 1
+  m_ExitTime: 0.1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -389,7 +473,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/SmoothAmount
+  m_BlendParameter: VRCBreeze/Smoothing/Value
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 0
@@ -424,6 +508,37 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1101 &-4062751613926137134
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsLocal
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: VRCBreeze/Direction/Randomized
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: VRCBreeze/Disable/RandomDirection
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 2107095417531539860}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.1
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-3839076015699229271
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -457,8 +572,14 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: VRCBreeze/Indoors/Toggle
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: VRCBreeze/Indoors_Hit
+    m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: VRCBreeze/Strength
+    m_ConditionEvent: VRCBreeze/Speed/Value
     m_EventTreshold: 0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6557689160409352682}
@@ -486,13 +607,41 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: VRCBreeze/Direction
+    m_ConditionEvent: VRCBreeze/Direction/Value
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6638018389555718563}
   m_Solo: 0
   m_Mute: 0
   m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-3223848941097974670
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: VRCBreeze/Indoors/Toggle
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: VRCBreeze/Indoors_Hit
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
@@ -562,7 +711,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: GestureLeftWeight
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/SmoothedDirection
+  m_BlendParameter: VRCBreeze/Direction/Smoothed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -581,10 +730,10 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: VRCBreeze/RandomStrength
+    m_ConditionEvent: VRCBreeze/Speed/Randomized
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: VRCBreeze/RandomDirection
+    m_ConditionEvent: VRCBreeze/Direction/Randomized
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -40505228960193976}
@@ -637,9 +786,9 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
+  - {fileID: -1499328650263258704}
   - {fileID: -5413275714947465692}
   - {fileID: -3580436066533765460}
-  - {fileID: -1499328650263258704}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -704,7 +853,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/LocalSpace
+  m_BlendParameter: VRCBreeze/LocalRotation
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -735,7 +884,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/SmoothAmount
+  m_BlendParameter: VRCBreeze/Smoothing/Value
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -836,7 +985,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Randomize Strength
+  m_Name: Randomize Speed
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -871,97 +1020,121 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: VRCBreeze/AlwaysActive
     m_Type: 1
     m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: VRCBreeze/WorldActive
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/LocalSpace
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/LocalRotation
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/Strength
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Speed/Value
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/SmoothedStrength
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Speed/Smoothed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/RandomStrength
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Speed/Randomized
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/Direction
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Direction/Value
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/SmoothedDirection
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Direction/Smoothed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/RandomDirection
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Direction/Randomized
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/RandomSpeed
-    m_Type: 1
-    m_DefaultFloat: 0.125
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/SmoothAmount
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Smoothing/Value
     m_Type: 1
     m_DefaultFloat: 0.9
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/Axis/0/+X
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/RandomUpdateRate
+    m_Type: 1
+    m_DefaultFloat: 0.125
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Disable/RandomSpeed
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Disable/RandomDirection
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Axis/+X
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/Axis/0/-X
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Axis/-X
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/Axis/0/+Z
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Axis/+Z
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: VRCBreeze/Axis/0/-Z
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Axis/-Z
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Indoors/Toggle
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
+  - m_Name: VRCBreeze/Indoors_Hit
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Breeze
@@ -999,6 +1172,28 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1101 &61084429265602641
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions: []
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 0}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 1
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.1
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &117513242028065593
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1013,12 +1208,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 0
-    name: VRCBreeze/SmoothAmount
+    name: VRCBreeze/Smoothing/Value
     source: 
     value: 0.9
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
@@ -1070,7 +1266,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 1
+  m_ExitTime: 0.1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1088,10 +1284,10 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 2
-    m_ConditionEvent: VRCBreeze/RandomStrength
+    m_ConditionEvent: VRCBreeze/Speed/Randomized
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: VRCBreeze/RandomDirection
+    m_ConditionEvent: VRCBreeze/Direction/Randomized
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -227486854126407728}
@@ -1119,6 +1315,7 @@ AnimatorState:
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3660536961234620303}
+  - {fileID: 7237179147146202649}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1150,7 +1347,7 @@ AnimatorStateTransition:
   serializedVersion: 3
   m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 1
+  m_ExitTime: 0.1
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1168,10 +1365,10 @@ AnimatorStateTransition:
     m_ConditionEvent: IsLocal
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: VRCBreeze/RandomStrength
+    m_ConditionEvent: VRCBreeze/Speed/Randomized
     m_EventTreshold: 0
   - m_ConditionMode: 1
-    m_ConditionEvent: VRCBreeze/RandomDirection
+    m_ConditionEvent: VRCBreeze/Direction/Randomized
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2998881500324667604}
@@ -1211,13 +1408,41 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/Direction
+  m_BlendParameter: VRCBreeze/Direction/Value
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 0
+--- !u!1102 &2107095417531539860
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Disable Random Direction
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions:
+  - {fileID: -5313488392434900570}
+  m_StateMachineBehaviours:
+  - {fileID: 9164104832848836523}
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: b0d1cd12b3459a5438f48e4919fc9118, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &2550242017204370431
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1302,7 +1527,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: VRCBreeze/Strength
+    m_ConditionEvent: VRCBreeze/Speed/Value
     m_EventTreshold: 0.001
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 0}
@@ -1365,6 +1590,37 @@ BlendTree:
   m_UseAutomaticThresholds: 1
   m_NormalizedBlendValues: 0
   m_BlendType: 4
+--- !u!1101 &4458567046684197555
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: IsLocal
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: VRCBreeze/Speed/Randomized
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: VRCBreeze/Disable/RandomSpeed
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -7641316691806371199}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.1
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!114 &4855215769318170251
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1379,24 +1635,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 2
-    name: VRCBreeze/Strength
+    name: VRCBreeze/Speed/Value
     source: 
     value: 0
     valueMin: 0.001
     valueMax: 1
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
     destMin: 0
     destMax: 0
   - type: 2
-    name: VRCBreeze/Direction
+    name: VRCBreeze/Direction/Value
     source: 
     value: 0
     valueMin: 0
     valueMax: 1
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
@@ -1418,16 +1676,22 @@ AnimatorStateMachine:
     m_Position: {x: 300, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -40505228960193976}
-    m_Position: {x: 90, y: 60, z: 0}
+    m_Position: {x: 540, y: 60, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -227486854126407728}
-    m_Position: {x: 300, y: 60, z: 0}
+    m_Position: {x: 540, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2998881500324667604}
-    m_Position: {x: 510, y: 60, z: 0}
+    m_Position: {x: 540, y: 180, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2076906266437670712}
-    m_Position: {x: 300, y: 180, z: 0}
+    m_Position: {x: 300, y: 60, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 2107095417531539860}
+    m_Position: {x: 540, y: 310, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7641316691806371199}
+    m_Position: {x: 540, y: 260, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1435,7 +1699,7 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 160, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 320, y: 10, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -6035283712477964680}
 --- !u!114 &5419942112093589914
@@ -1452,36 +1716,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 0
-    name: VRCBreeze/SmoothAmount
+    name: VRCBreeze/Smoothing/Value
     source: 
     value: 0
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
     destMin: 0
     destMax: 0
   - type: 0
-    name: VRCBreeze/Direction
+    name: VRCBreeze/Direction/Value
     source: 
     value: 1
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
     destMin: 0
     destMax: 0
   - type: 0
-    name: VRCBreeze/SmoothedDirection
+    name: VRCBreeze/Direction/Smoothed
     source: 
     value: 1
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
@@ -1503,12 +1770,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 2
-    name: VRCBreeze/Strength
+    name: VRCBreeze/Speed/Value
     source: 
     value: 0
     valueMin: 0.001
     valueMax: 1
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
@@ -1516,6 +1784,34 @@ MonoBehaviour:
     destMax: 0
   localOnly: 1
   debugString: 
+--- !u!1101 &7237179147146202649
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: VRCBreeze/Indoors/Toggle
+    m_EventTreshold: 0
+  - m_ConditionMode: 3
+    m_ConditionEvent: VRCBreeze/Speed/Value
+    m_EventTreshold: 0.001
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -6557689160409352682}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75
+  m_HasExitTime: 0
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!206 &7522846311486290852
 BlendTree:
   m_ObjectHideFlags: 1
@@ -1564,7 +1860,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/SmoothedDirection
+  m_BlendParameter: VRCBreeze/Direction/Smoothed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -1617,7 +1913,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/SmoothedStrength
+  m_BlendParameter: VRCBreeze/Speed/Smoothed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -1638,12 +1934,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 2
-    name: VRCBreeze/Direction
+    name: VRCBreeze/Direction/Value
     source: 
     value: 0
     valueMin: 0
     valueMax: 1
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
@@ -1702,12 +1999,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - type: 0
-    name: VRCBreeze/SmoothAmount
+    name: VRCBreeze/Smoothing/Value
     source: 
     value: 0.9
     valueMin: 0
     valueMax: 0
     chance: 0
+    preventRepeats: 0
     convertRange: 0
     sourceMin: 0
     sourceMax: 0
@@ -1761,7 +2059,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/SmoothAmount
+  m_BlendParameter: VRCBreeze/Smoothing/Value
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -1792,7 +2090,7 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: VRCBreeze/AlwaysActive
     m_Mirror: 0
-  m_BlendParameter: VRCBreeze/SmoothedDirection
+  m_BlendParameter: VRCBreeze/Direction/Smoothed
   m_BlendParameterY: Blend
   m_MinThreshold: 0
   m_MaxThreshold: 1
@@ -1827,3 +2125,31 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!114 &9164104832848836523
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -706344726, guid: 67cc4cb7839cd3741b63733d5adf0442, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameters:
+  - type: 0
+    name: VRCBreeze/Direction/Randomized
+    source: 
+    value: 0
+    valueMin: 0
+    valueMax: 0
+    chance: 0
+    preventRepeats: 0
+    convertRange: 0
+    sourceMin: 0
+    sourceMax: 0
+    destMin: 0
+    destMax: 0
+  localOnly: 1
+  debugString: 

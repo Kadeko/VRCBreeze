@@ -1,0 +1,33 @@
+﻿_Select_Langauge,Select Language:,言語を選択： (Select Language),언어 선택：(Select Language),选择语言: (Select Language),Selecciona idioma: (Select Language)
+_Languages,English (EN),日本語 (JP),한국어 (KR),中文 (CN),Español (ES)
+_Created_By,Created by:,製作者：,제작자：,作者：,Creado por:
+_Translators,Translators:,翻訳者：,번역자：,翻译者：,Traductores:
+_Help_Documentation,Help & Documentation,ヘルプ＆ドキュメント,도움말 및 문서,帮助与文档,Ayuda y Documentación
+_Quick_Setup,Quick Setup,クイックセットアップ,빠른 설치,快速设置,Instalación rápida
+_Wind_Settings,Wind Settings:,風の設定：,바람 설정：,风的设定：,Configuración del viento:
+_Wind_Anchor,Wind Anchor,風の方向,바람의 방향 기준,风向,Ancla del viento
+_Wind_Strength,Wind Strength,風の強さ,바람의 강함,风的强度,Intensidad del viento
+_Wind_Pattern,Wind Pattern,風のパターン,바람의 패턴,风型,Patrón de brisa
+_Moving_Bones_At_Random_Time,Moving Bones at Random Time,ボーンをランダムなタイミングで動かす,본을 랜덤한 시간 간격으로 움직임,随机动骨移动时间,Mover huesos de forma aleatoria
+_Random_Range,Random Range,ランダムの範囲,랜덤 범위,随机范围,Rango aleatorio
+_Avatar_Bones,Avatar Bones:,アバターボーン：,아바타 본：,模型动骨：,Huesos del avatar:
+_Bones,Bones,ボーン,본,动骨,Huesos
+_Bone,Bone,ボーン,본,动骨,Hueso
+breezeBone,Breeze Bone,風の影響を受けるボーン,적용할 대상 본,受风影响的骨骼,Hueso con brisa
+breezeBoneWeight,Breeze Bone Weight,風の影響量,본의 영향도(웨이트),受风影响的程度,Peso del hueso con brisa
+invertX,Invert X,X軸反転,X축 반전,X轴反转,Invertir X
+invertZ,Invert Z,Z軸反転,Y축 반전,Z轴反转,Invertir Z
+_Important_Components,Important Components (Do not modify!),重要なコンポーネント：（変更しないでください）,중요한 컴포넌트: (건들지 마세요!),重要组件：（请不要改动）,Componentes importantes: (¡No cambiar!)
+_Rotation_Constraint,Rotation Constraint,Rotation Constraint,Rotation Constraint,Rotation Constraint,Rotation Constraint
+_Animator_Controller,Animator Controller,Animator Controller,Animator Controller,Animator Controller,Animator Controller
+_Debug,Debug:,デバッグ：,디버그：,调试：,Depuración
+_Enable_Automatic_Write_Defaults,Enable Automatic Write Defaults,Write Defaults自動設定オン,Write Defaults 자동 활성화,自动设定“写入默认”,Activar Write Defaults de forma automática
+_Enable_Gizmos,Enable Gizmos,ギズモオン,기즈모 켜기,辅助图标,Activar Gizmos
+_Copy_Bones_From_VRCBreeze,Copy Bones from VRCBreeze,VRCBreezeからボーンをコピー,VRCBreeze에서 본을 복사, 复制 VRCBreeze的骨骼,Copiar huesos desde VRCBreeze
+_Clear_Bones_From_VRCBreeze,Clear Bones from VRCBreeze,VRCBreezeからボーンをクリア,VRCBreeze에서 본을 삭제,清除VRCBreeze的骨骼,Limpiar huesos de VRCBreeze
+_Add_New_Bones_To_VRCBreeze,Add New Bones,新規ボーン追加,새로운 본 추가,指定新骨骼,Añadir nuevos huesos
+_Final_Step,Final Step:,最終ステップ：,마지막 단계：,最终设定:,Paso final:
+VRCBreezePrefab,VRCBreeze Prefab,VRCBreezeプレハブ,VRCBreeze 프리팹,VRCBreeze预设,VRCBreeze Prefab
+newBreezeBones,Breeze Bones,風の影響を受けるボーン,적용할 대상 본,受风影响的骨骼,Hueso con brisa
+newBreezeBoneWeights,Breeze Bone Weights,風の影響量,본의 영향도(웨이트),受风影响的程度,Peso del hueso con brisa
+windAnchor,Wind Anchor,風の方向,바람의 방향 기준,风向,Ancla del viento

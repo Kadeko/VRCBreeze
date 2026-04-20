@@ -34,7 +34,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: WindDirection_RootConstraint/WindDirection_Root/CS_WindDirection
+    path: WorldConstraint/WindDirection_RootConstraint/WindDirection_Root/CS_WindDirection
     classID: 1
     script: {fileID: 0}
     flags: 0
@@ -47,7 +47,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 2532322453
+      path: 1724746153
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -94,7 +94,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: WindDirection_RootConstraint/WindDirection_Root/CS_WindDirection
+    path: WorldConstraint/WindDirection_RootConstraint/WindDirection_Root/CS_WindDirection
     classID: 1
     script: {fileID: 0}
     flags: 0

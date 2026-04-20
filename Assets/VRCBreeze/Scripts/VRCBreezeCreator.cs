@@ -26,7 +26,7 @@ namespace VRCBreeze
     public class VRCBreezeCreator : MonoBehaviour, IEditorOnly, IVirtualizeAnimatorController
     {
         #region Variables
-        [Header("Wind Settings:"), Tooltip("Assign your desired Wind Anchor here. We recommend that to be 'Hips' or 'Head'.")]
+        [Tooltip("Assign your desired Wind Anchor here. We recommend that to be 'Hips' or 'Head'.")]
         public GameObject windAnchor;
 
         [Tooltip("How strong is the wind."), Min(0f)]
@@ -41,20 +41,23 @@ namespace VRCBreeze
         [Tooltip("If 'Move Bones At Random Time' is enabled, Animation keyframes are slightly shuffled by this value."), Min(0f)]
         public float randomRange = 0.1f;
 
-        [Space, Tooltip("Drag any bones here to make it move in the wind!\nDo not add any child bones inside! Physbones will move the rest of the bones itself.")]
-        public BoneObjects[] boneObjects;
+        [Tooltip("Drag any bones here to make it move in the wind!\nDo not add any child bones inside! Physbones will move the rest of the bones itself.")]
+        public BoneObjects[] bones;
 
-        [Header("Important Components:"), Tooltip("Do not remove this, unless you know what you are doing!\nYou can find this component at: 'Rotation_Source' GameObject.")]
+        [Tooltip("Do not remove this, unless you know what you are doing!\nYou can find this component in your avatar: 'Avatar/VRCBreeze/WorldConstraint/Rotation_Source' GameObject.")]
         public VRCRotationConstraint rotationConstraint;
 
         [Tooltip("Requires 'FX_Breeze' Animator Controller.\nYou can find this at: 'Assets/VRCBreeze/Animations/FX_Breeze.controller'")]
         public RuntimeAnimatorController sourceAnimatorController;
 
-        [Space, Header("Debug:"), Tooltip("Automatically tries to check, if your FX is using Write Defaults ON/OFF during Avatar installment. If your controller has mixed Write Defaults, we recommend to disable this option.")]
-        public bool enableAutomaticWriteDefaults = true;
+        // [Tooltip("Automatically tries to check, if your FX is using Write Defaults ON/OFF during Avatar installment. If your controller has mixed Write Defaults, we recommend to disable this option.")]
+        // public bool enableAutomaticWriteDefaults = true;
 
-        [Tooltip("Show gizmos on selected Breeze Bones. Avatar (or VRCBreeze Object) must be selected and Unity Gizmos enabled! Useful when setting up Wind Strength and Breeze Bone Weight."), SerializeField]
-        private bool enableGizmos = false;
+        [Tooltip("Show gizmos on selected Breeze Bones. Avatar (or VRCBreeze Object) must be selected and Unity Gizmos enabled! Useful when setting up Wind Strength and Breeze Bone Weight.")]
+        public bool enableGizmos = false;
+
+        [HideInInspector]
+        public int language;
 
         private bool isAbsolute;
         #endregion
@@ -84,24 +87,24 @@ namespace VRCBreeze
         private void OnDrawGizmosSelected()
         {
             if (!enableGizmos) return;
-            if (boneObjects == null || boneObjects.Length == 0) return;
+            if (bones == null || bones.Length == 0) return;
 
             float height = 0.05f;
             int circleSegments = 8;
 
             Gizmos.color = Color.cyan;
 
-            for (int i = 0; i < boneObjects.Length; i++)
+            for (int i = 0; i < bones.Length; i++)
             {
-                if (boneObjects[i].breezeBone == null) continue;
+                if (bones[i].breezeBone == null) continue;
 
-                float radius = Mathf.Tan(windStrength * boneObjects[i].breezeBoneWeight * Mathf.Deg2Rad) * height;
+                float radius = Mathf.Tan(windStrength * bones[i].breezeBoneWeight * Mathf.Deg2Rad) * height;
 
-                Vector3 origin = boneObjects[i].breezeBone.transform.position;
-                Vector3 direction = boneObjects[i].breezeBone.transform.up * height;
+                Vector3 origin = bones[i].breezeBone.transform.position;
+                Vector3 direction = bones[i].breezeBone.transform.up * height;
 
                 Vector3 baseCenter = origin + direction;
-                Quaternion rotation = Quaternion.LookRotation(boneObjects[i].breezeBone.transform.up);
+                Quaternion rotation = Quaternion.LookRotation(bones[i].breezeBone.transform.up);
                 Vector3 prevPoint = Vector3.zero;
 
                 for (int c = 0; c <= circleSegments; c++)

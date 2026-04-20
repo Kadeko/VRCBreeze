@@ -15,7 +15,7 @@ MonoBehaviour:
   Parameters: {fileID: 0}
   controls:
   - name: <b>VRCBreeze</b>
-    icon: {fileID: 2800000, guid: 98134e6ee2390014c9e1c9d84ecdf30d, type: 3}
+    icon: {fileID: 2800000, guid: 6c6864fa45f25fb4ebffc309571b515d, type: 3}
     type: 103
     parameter:
       name: 

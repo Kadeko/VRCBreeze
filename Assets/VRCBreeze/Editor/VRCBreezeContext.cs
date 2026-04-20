@@ -3,7 +3,7 @@ using nadena.dev.ndmf.animator;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.Animations;
+// using UnityEditor.Animations;
 using UnityEngine;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDK3.Dynamics.PhysBone.Components;
@@ -19,14 +19,14 @@ namespace VRCBreeze
         AnimatorServicesContext asc;
         readonly Dictionary<(VRCBreezeCreator, Direction), VirtualClip> generatedClips = new();
         VirtualAnimatorController fx;
-        bool writeDefaults;
+        // bool writeDefaults;
 
         public void OnActivate(BuildContext context)
         {
             this.context = context;
             asc = context.Extension<AnimatorServicesContext>();
             fx = asc.ControllerContext.Controllers[VRCAvatarDescriptor.AnimLayerType.FX];
-            writeDefaults = CalculateWriteDefaults();
+            // writeDefaults = CalculateWriteDefaults();
         }
 
         public void OnDeactivate(BuildContext context)
@@ -42,7 +42,7 @@ namespace VRCBreeze
         {
             if (creator == null) return;
 
-            if (creator.boneObjects != null && creator.boneObjects.Length > 0)
+            if (creator.bones != null && creator.bones.Length > 0)
             {
                 // Setup Physbones
                 SetupPhysbones(creator);
@@ -74,7 +74,7 @@ namespace VRCBreeze
         {
             var allPhysBones = context.AvatarRootObject.GetComponentsInChildren<VRCPhysBone>(true);
             if (allPhysBones.Length == 0) return;
-            foreach (var boneObject in creator.boneObjects)
+            foreach (var boneObject in creator.bones)
             {
                 if (boneObject.breezeBone == null) continue;
                 var boneTransform = boneObject.breezeBone.transform;
@@ -103,7 +103,7 @@ namespace VRCBreeze
         {
             var clip = VirtualClip.Create("N/A");
 
-            foreach (var boneObject in creator.boneObjects)
+            foreach (var boneObject in creator.bones)
             {
                 if (boneObject.breezeBone == null || boneObject.breezeBoneWeight == 0f) continue;
 
@@ -222,7 +222,6 @@ namespace VRCBreeze
             }
 
             // Breeze Layer
-
             VirtualLayer fxLayer = null;
             foreach (var layer in sourceAnimatorController.Layers)
             {
@@ -232,14 +231,12 @@ namespace VRCBreeze
                     break;
                 }
             }
-
             if (fxLayer == null)
             {
                 return;
             }
 
             // Breeze Blend Tree
-
             VirtualState hairState = null;
             foreach (var state in fxLayer.StateMachine.AllStates())
             {
@@ -261,7 +258,6 @@ namespace VRCBreeze
             }
 
             // Breeze Tree
-
             VirtualBlendTree breezeTree = null;
             foreach (var child in blendTree.Children)
             {
@@ -277,7 +273,6 @@ namespace VRCBreeze
             }
 
             // Breeze World
-
             VirtualBlendTree breezeWorld = null;
             foreach (var child in breezeTree.Children)
             {
@@ -306,7 +301,6 @@ namespace VRCBreeze
             breezeWorld.Children = worldChildren;
 
             // Breeze Local
-
             VirtualBlendTree breezeLocal = null;
             foreach (var child in breezeTree.Children)
             {
@@ -339,22 +333,18 @@ namespace VRCBreeze
             fx.Parameters = fx.Parameters.SetItems(sourceAnimatorController.Parameters);
             foreach (var layer in sourceAnimatorController.Layers)
             {
-                if (creator.enableAutomaticWriteDefaults)
+                /* if (creator.enableAutomaticWriteDefaults)
                 {
                     foreach (var state in layer.StateMachine.AllStates())
                         state.WriteDefaultValues = writeDefaults;
-                }
+                } */
                 fx.AddLayer(LayerPriority.Default, layer);
             }
         }
 
         private void SetConstraints(VRCBreezeCreator creator)
         {
-            if (creator.rotationConstraint == null)
-            {
-                return;
-            }
-            if (creator.windAnchor == null)
+            if (creator.rotationConstraint == null || creator.windAnchor == null)
             {
                 return;
             }
@@ -369,7 +359,7 @@ namespace VRCBreeze
             creator.rotationConstraint.ActivateConstraint();
         }
 
-        public bool CalculateWriteDefaults()
+        /* public bool CalculateWriteDefaults()
         {
             int wdOffCount = 0, wdOnCount = 0;
             foreach (var layer in fx.Layers)
@@ -394,6 +384,6 @@ namespace VRCBreeze
                         wdOffCount++;
             }
             return wdOnCount > wdOffCount;
-        }
+        } */
     }
 }

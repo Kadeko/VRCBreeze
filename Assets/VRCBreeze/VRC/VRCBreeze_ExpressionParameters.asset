@@ -14,33 +14,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isEmpty: 0
   parameters:
-  - name: VRCBreeze/Strength
+  - name: VRCBreeze/Speed/Value
     valueType: 1
     saved: 1
     defaultValue: 0
     networkSynced: 1
-  - name: VRCBreeze/RandomStrength
+  - name: VRCBreeze/Speed/Randomized
     valueType: 2
     saved: 1
     defaultValue: 0
     networkSynced: 0
-  - name: VRCBreeze/Direction
+  - name: VRCBreeze/Direction/Value
     valueType: 1
     saved: 1
     defaultValue: 0
     networkSynced: 1
-  - name: VRCBreeze/RandomDirection
+  - name: VRCBreeze/Direction/Randomized
     valueType: 2
     saved: 1
     defaultValue: 0
     networkSynced: 0
-  - name: VRCBreeze/RandomSpeed
+  - name: VRCBreeze/RandomUpdateRate
     valueType: 1
     saved: 1
     defaultValue: 0.125
     networkSynced: 0
-  - name: VRCBreeze/LocalSpace
+  - name: VRCBreeze/LocalRotation
     valueType: 2
     saved: 1
     defaultValue: 0
     networkSynced: 1
+  - name: VRCBreeze/WorldActive
+    valueType: 2
+    saved: 0
+    defaultValue: 0
+    networkSynced: 0
+  - name: VRCBreeze/Indoors/Toggle
+    valueType: 2
+    saved: 1
+    defaultValue: 0
+    networkSynced: 1
+  - name: VRCBreeze/Indoors_Hit
+    valueType: 2
+    saved: 0
+    defaultValue: 0
+    networkSynced: 0
+  - name: VRCBreeze/Disable/RandomSpeed
+    valueType: 2
+    saved: 0
+    defaultValue: 0
+    networkSynced: 0
+  - name: VRCBreeze/Disable/RandomDirection
+    valueType: 2
+    saved: 0
+    defaultValue: 0
+    networkSynced: 0

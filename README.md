@@ -6,15 +6,17 @@
 VRCBreeze is Non-Destructive prefab that allows you to create any bone move in the wind. It can be your hair, clothes, anything! This uses zero colliders and works well with good performant avatars!
 
 ## **Features:**
-- Wind strength, Direction, Local & World space options, and Strength/Direction Randomization!
+- Wind Speed, Direction, Local Rotation, Indoor Detection, and Strength/Direction Randomization!
 
-- Avatar uses:
+- VRCBreeze Prefab uses:
    - 5 Contact Receivers,
    - 1 Contact Sender,
+   - 1 Raycast,
    - 4 VRC Constraints,
-   - 3 Synced Parameters: 2 float & 1 boolean, in total of 17 Synced Bits.
+   - 4 Synced Parameters: 2 float & 2 boolean, in total of 18 Synced Bits.
+   - 3 Animator Layers: 1 Layer using Blend Tree.
 
-- This prefab generates 4 animations for the wind direction:\
+- This prefab generates 4 animations during Avatar upload, for the wind direction:\
    Forward `(+Z)`, Backward `(-Z)`, Left `(+X)` & Right `(-X)`
    - Directions can be inverted on every individual bone.
    - Animations are rotating the assigned bones to create a wind effect. Perfect with Physbones!
@@ -23,7 +25,7 @@ VRCBreeze is Non-Destructive prefab that allows you to create any bone move in t
 
 - Assigned bones, that has Physbones, will automatically change Physbones setting `IsAnimated` to `true`.
 
-- Modular Avatar merges Expression Menu & Parameters into your Avatar during publishing.
+- Modular Avatar merges Animator, Expression Menu & Parameters into your Avatar during publishing.
 
 - Most important feature: It is Non-Destructive, meaning it will never overwrite your Avatar in Unity before & after publishing!
 
