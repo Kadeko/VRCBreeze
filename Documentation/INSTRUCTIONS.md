@@ -5,6 +5,8 @@
 **Requires:** [Modular Avatar](https://modular-avatar.nadena.dev/)\
 Modular Avatar is used in merging Animator, Expression Menu & Expression Parameters.
 
+<p align="center">https://github.com/user-attachments/assets/9f4d388c-94a8-4fa2-a1bf-f40fdb0d5421</p>
+
 ## **Steps:**
 1) Drag `VRCBreeze.prefab` into your Avatar.
 > [!TIP]
