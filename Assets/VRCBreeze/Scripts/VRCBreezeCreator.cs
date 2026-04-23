@@ -36,7 +36,7 @@ namespace VRCBreeze
         public AnimationCurve windPattern;
 
         [Tooltip("If enabled, Animation keyframes are slightly shuffled.")]
-        public bool moveBonesAtRandomTime = false;
+        public bool moveBonesAtRandomTime = true;
 
         [Tooltip("If 'Move Bones At Random Time' is enabled, Animation keyframes are slightly shuffled by this value."), Min(0f)]
         public float randomRange = 0.1f;
@@ -50,8 +50,8 @@ namespace VRCBreeze
         [Tooltip("Requires 'FX_Breeze' Animator Controller.\nYou can find this at: 'Assets/VRCBreeze/Animations/FX_Breeze.controller'")]
         public RuntimeAnimatorController sourceAnimatorController;
 
-        // [Tooltip("Automatically tries to check, if your FX is using Write Defaults ON/OFF during Avatar installment. If your controller has mixed Write Defaults, we recommend to disable this option.")]
-        // public bool enableAutomaticWriteDefaults = true;
+        [Tooltip("Automatically tries to check, if your FX is using Write Defaults ON/OFF during Avatar installment. If your controller has mixed Write Defaults, we recommend to disable this option.")]
+        public bool enableAutomaticWriteDefaults = true;
 
         [Tooltip("Show gizmos on selected Breeze Bones. Avatar (or VRCBreeze Object) must be selected and Unity Gizmos enabled! Useful when setting up Wind Strength and Breeze Bone Weight.")]
         public bool enableGizmos = false;

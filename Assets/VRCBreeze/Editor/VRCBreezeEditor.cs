@@ -13,17 +13,19 @@ namespace VRCBreeze
         Texture2D header_mainTexture;
         Rect headerSection;
         float headerSize = 100f;
+        bool showTranslators = false;
 
         List<Dictionary<string, string>> texts = new List<Dictionary<string, string>>();
 
+        #region Styles
         private static GUIStyle DefaultButtonStyle => new GUIStyle(GUI.skin.button)
         {
             fontStyle = FontStyle.Normal,
             alignment = TextAnchor.MiddleCenter,
             richText = true,
             wordWrap = false,
+            clipping = TextClipping.Clip,
         };
-
         private static GUIStyle DefaultHeaderStyle => new GUIStyle(GUI.skin.label)
         {
             fontStyle = FontStyle.Bold,
@@ -31,6 +33,21 @@ namespace VRCBreeze
             richText = true,
             wordWrap = false,
         };
+        private static GUIStyle DefaultFoldoutStyle => new GUIStyle(EditorStyles.foldout)
+        {
+            fontStyle = FontStyle.Bold,
+            alignment = TextAnchor.MiddleLeft,
+            richText = true,
+            wordWrap = false,
+        };
+        private static GUIStyle DefaultPopupStyle => new GUIStyle(EditorStyles.popup)
+        {
+            fontStyle = FontStyle.Bold,
+            alignment = TextAnchor.MiddleLeft,
+            richText = true,
+            wordWrap = false,
+        };
+        #endregion
 
         private void OnEnable()
         {
@@ -72,24 +89,32 @@ namespace VRCBreeze
             }
             EditorGUILayout.EndHorizontal();
 
-            EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.LabelField(localized_texts["_Translators"], DefaultHeaderStyle);
-            if (GUILayout.Button("季葉chowchow", DefaultButtonStyle))
-                Application.OpenURL("https://x.com/chowchow0704");
-            if (GUILayout.Button("Sora", DefaultButtonStyle))
-                Application.OpenURL("https://x.com/vrc_sora_");
-            if (GUILayout.Button("ASCEND", DefaultButtonStyle))
-                Application.OpenURL("https://ascend.booth.pm/");
-            if (GUILayout.Button("O_ru", DefaultButtonStyle))
-                Application.OpenURL("https://x.com/oru_milkyway");
-            if (GUILayout.Button("Lyxie", DefaultButtonStyle))
-                Application.OpenURL("https://linktr.ee/itsLyxie");
-            EditorGUILayout.EndHorizontal();
-
-            creator.language = EditorGUILayout.Popup(localized_texts["_Select_Langauge"], (int)creator.language, new[] { 0, 1, 2, 3, 4 }.Select(i => texts[i]["_Languages"]).ToArray());
+            showTranslators = EditorGUILayout.Foldout(showTranslators, localized_texts["_Translators"], true, DefaultFoldoutStyle);
+            if (showTranslators)
+            {
+                EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button("季葉chowchow", DefaultButtonStyle))
+                    Application.OpenURL("https://x.com/chowchow0704");
+                if (GUILayout.Button("Sora", DefaultButtonStyle))
+                    Application.OpenURL("https://x.com/vrc_sora_");
+                if (GUILayout.Button("ASCEND", DefaultButtonStyle))
+                    Application.OpenURL("https://ascend.booth.pm/");
+                if (GUILayout.Button("O_ru", DefaultButtonStyle))
+                    Application.OpenURL("https://x.com/oru_milkyway");
+                if (GUILayout.Button("Lyxie", DefaultButtonStyle))
+                    Application.OpenURL("https://linktr.ee/itsLyxie");
+                if (GUILayout.Button("Humi", DefaultButtonStyle))
+                    Application.OpenURL("https://x.com/lovedbyhumi");
+                EditorGUILayout.EndHorizontal();
+            }
 
             EditorGUILayout.Space(15f);
 
+            creator.language = EditorGUILayout.Popup(localized_texts["_Select_Langauge"], (int)creator.language, new[] { 0, 1, 2, 3, 4, 5 }.Select(i => texts[i]["_Languages"]).ToArray(), DefaultPopupStyle);
+
+            EditorGUILayout.Space(15f);
+
+            EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button(localized_texts["_Help_Documentation"], DefaultButtonStyle))
                 Application.OpenURL("https://github.com/Kadeko/VRCBreeze/");
 
@@ -105,7 +130,8 @@ namespace VRCBreeze
                     quickSetup.rootVisualElement.Bind(quickSetup.serializedObject);
                 }
             }
-            
+            EditorGUILayout.EndHorizontal();
+
             EditorGUILayout.Space(15f);
 
             EditorGUILayout.LabelField(localized_texts["_Wind_Settings"], DefaultHeaderStyle);
@@ -149,6 +175,12 @@ namespace VRCBreeze
             var enableGizmos = serializedObject.FindProperty("enableGizmos");
             EditorGUILayout.PropertyField(enableGizmos, new GUIContent(localized_texts["_Enable_Gizmos"]));
 
+            var writeDefaults = serializedObject.FindProperty("enableAutomaticWriteDefaults");
+            EditorGUILayout.PropertyField(writeDefaults, new GUIContent(localized_texts["_Enable_Auto_Write_Defaults"]));
+
+            EditorGUILayout.Space(5f);
+            EditorGUILayout.HelpBox(localized_texts["_Write_Defaults_Info"], MessageType.Info);
+
             serializedObject.ApplyModifiedProperties();
             //DrawDefaultInspector();
         }
@@ -158,12 +190,12 @@ namespace VRCBreeze
             List<Dictionary<string, string>> texts = new List<Dictionary<string, string>>();
             StreamReader sr = new StreamReader(AssetDatabase.GUIDToAssetPath("26d24caea8e51d146b7e7c6a45a10688"));
             bool n = false;
-            int _languageTotal = 5;
+            int _languageTotal = 6;
 
             while (!sr.EndOfStream)
             {
                 string line = sr.ReadLine();
-                string[] values = line.Split(',');
+                string[] values = line.Split(';');
                 if (!n)
                 {
                     for (int i = 0; i < _languageTotal; i++)

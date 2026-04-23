@@ -3,7 +3,7 @@ using nadena.dev.ndmf.animator;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
-// using UnityEditor.Animations;
+using UnityEditor.Animations;
 using UnityEngine;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDK3.Dynamics.PhysBone.Components;
@@ -19,14 +19,14 @@ namespace VRCBreeze
         AnimatorServicesContext asc;
         readonly Dictionary<(VRCBreezeCreator, Direction), VirtualClip> generatedClips = new();
         VirtualAnimatorController fx;
-        // bool writeDefaults;
+        bool writeDefaults;
 
         public void OnActivate(BuildContext context)
         {
             this.context = context;
             asc = context.Extension<AnimatorServicesContext>();
             fx = asc.ControllerContext.Controllers[VRCAvatarDescriptor.AnimLayerType.FX];
-            // writeDefaults = CalculateWriteDefaults();
+            writeDefaults = CalculateWriteDefaults();
         }
 
         public void OnDeactivate(BuildContext context)
@@ -237,21 +237,21 @@ namespace VRCBreeze
             }
 
             // Breeze Blend Tree
-            VirtualState hairState = null;
+            VirtualState breezeState = null;
             foreach (var state in fxLayer.StateMachine.AllStates())
             {
                 if (string.Equals(state.Name, "breeze blend tree", StringComparison.OrdinalIgnoreCase))
                 {
-                    hairState = state;
+                    breezeState = state;
                     break;
                 }
             }
-            if (hairState == null)
+            if (breezeState == null)
             {
                 return;
             }
 
-            var blendTree = hairState.Motion as VirtualBlendTree;
+            var blendTree = breezeState.Motion as VirtualBlendTree;
             if (blendTree == null)
             {
                 return;
@@ -333,11 +333,11 @@ namespace VRCBreeze
             fx.Parameters = fx.Parameters.SetItems(sourceAnimatorController.Parameters);
             foreach (var layer in sourceAnimatorController.Layers)
             {
-                /* if (creator.enableAutomaticWriteDefaults)
+                if (creator.enableAutomaticWriteDefaults)
                 {
                     foreach (var state in layer.StateMachine.AllStates())
                         state.WriteDefaultValues = writeDefaults;
-                } */
+                }
                 fx.AddLayer(LayerPriority.Default, layer);
             }
         }
@@ -359,7 +359,7 @@ namespace VRCBreeze
             creator.rotationConstraint.ActivateConstraint();
         }
 
-        /* public bool CalculateWriteDefaults()
+        public bool CalculateWriteDefaults()
         {
             int wdOffCount = 0, wdOnCount = 0;
             foreach (var layer in fx.Layers)
@@ -384,6 +384,6 @@ namespace VRCBreeze
                         wdOffCount++;
             }
             return wdOnCount > wdOffCount;
-        } */
+        }
     }
 }

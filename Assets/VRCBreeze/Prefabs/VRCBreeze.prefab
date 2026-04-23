@@ -563,7 +563,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4609851767951380918}
   - component: {fileID: 8036493328730307629}
-  - component: {fileID: 1991263147611423890}
   - component: {fileID: 1880038099476336501}
   - component: {fileID: 8394457485246796443}
   m_Layer: 0
@@ -643,30 +642,9 @@ MonoBehaviour:
   rotationConstraint: {fileID: 215003812590759311}
   sourceAnimatorController: {fileID: 9100000, guid: 4aa810356bb7e8748a2971510a5100b2,
     type: 2}
+  writeDefaults: 1
   enableGizmos: 1
   language: 0
---- !u!114 &1991263147611423890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4142863996460731324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bb122659f724ebf85fe095ac02dc339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 9100000, guid: 4aa810356bb7e8748a2971510a5100b2, type: 2}
-  layerType: 5
-  deleteAttachedAnimator: 1
-  pathMode: 1
-  matchAvatarWriteDefaults: 1
-  relativePathRoot:
-    referencePath: 
-    targetObject: {fileID: 0}
-  layerPriority: 0
-  mergeAnimatorMode: 0
 --- !u!114 &1880038099476336501
 MonoBehaviour:
   m_ObjectHideFlags: 0
